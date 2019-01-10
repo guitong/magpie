@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 import { rhythm, scale } from '../utils/typography'
+import magpiePic from './magpie.svg'
 
 class Layout extends React.Component {
   render() {
@@ -28,6 +29,13 @@ class Layout extends React.Component {
           >
             {title}
           </Link>
+          <img
+            src={magpiePic}
+            alt={`magpie picture`}
+            style={{
+              width: 50,
+            }}
+          />
         </h1>
       )
     } else {
@@ -48,6 +56,15 @@ class Layout extends React.Component {
           >
             {title}
           </Link>
+          <img
+            src={magpiePic}
+            alt={`magpie picture`}
+            style={{
+              width: 20,
+              marginBottom: 10,
+              marginLeft: 4,
+            }}
+          />
         </h3>
       )
     }
