@@ -1,103 +1,1152 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Magpie]]></title><description><![CDATA[A starter blog demonstrating what Gatsby can do.]]></description><link>https://gatsby-starter-blog-demo.netlify.com/</link><generator>RSS for Node</generator><lastBuildDate>Wed, 09 Jan 2019 07:27:55 GMT</lastBuildDate><item><title><![CDATA[New Beginnings]]></title><description><![CDATA[Far far away, behind the word mountains, far from the countries Vokalia and
-Consonantia, there live the blind texts. Separated they live in…]]></description><link>https://gatsby-starter-blog-demo.netlify.com//hi-folks/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com//hi-folks/</guid><pubDate>Thu, 28 May 2015 22:40:32 GMT</pubDate><content:encoded>&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and
-Consonantia, there live the blind texts. Separated they live in Bookmarksgrove
-right at the coast of the Semantics, a large language ocean. A small river named
-Duden flows by their place and supplies it with the necessary regelialia.&lt;/p&gt;
-&lt;h2&gt;On deer horse aboard tritely yikes and much&lt;/h2&gt;
-&lt;p&gt;The Big Oxmox advised her not to do so, because there were thousands of bad
-Commas, wild Question Marks and devious Semikoli, but the Little Blind Text
-didn’t listen. She packed her seven versalia, put her initial into the belt and
-made herself on the way.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Magpie]]></title><description><![CDATA[A starter blog demonstrating what Gatsby can do.]]></description><link>https://gatsby-starter-blog-demo.netlify.com/</link><generator>RSS for Node</generator><lastBuildDate>Thu, 10 Jan 2019 08:21:35 GMT</lastBuildDate><item><title><![CDATA[[Getting Started] - Lisp环境配置指南]]></title><description><![CDATA[安装 SBCL 我采用的Lisp环境为  。首先让我们来安装 SBCL(Steel Bank Common Lisp) ，它是Common Lisp的一种实现，是一个高性能的Common Lisp编译器。 在OS X系统上，我们可以很方便的使用Homebrew…]]></description><link>https://gatsby-starter-blog-demo.netlify.com//lisp-develop-guide/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com//lisp-develop-guide/</guid><pubDate>Sat, 22 Sep 2018 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;安装 SBCL&lt;/h2&gt;
+&lt;p&gt;我采用的Lisp环境为&lt;code class=&quot;language-text&quot;&gt;SBCL + Quicklisp + Emacs + SLIME&lt;/code&gt; 。首先让我们来安装&lt;a href=&quot;http://www.sbcl.org/&quot;&gt;SBCL(Steel Bank Common Lisp)&lt;/a&gt;，它是Common Lisp的一种实现，是一个高性能的Common Lisp编译器。&lt;/p&gt;
+&lt;p&gt;在OS X系统上，我们可以很方便的使用Homebrew来安装：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;$ brew install sbcl&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;安装 Quicklisp&lt;/h2&gt;
+&lt;p&gt;接下来安装&lt;a href=&quot;https://www.quicklisp.org/beta/&quot;&gt;Quicklisp&lt;/a&gt;，它是包管理器。安装过程也同样简单：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;$ curl -o /tmp/ql.lisp http://beta.quicklisp.org/quicklisp.lisp
+$ sbcl --no-sysinit --no-userinit --load /tmp/ql.lisp \
+       --eval &amp;#39;(quicklisp-quickstart:install :path &amp;quot;.quicklisp&amp;quot;)&amp;#39; \
+       --quit&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Quicklisp将安装至&lt;code class=&quot;language-text&quot;&gt;~/.quicklisp/&lt;/code&gt;目录下。&lt;/p&gt;
+&lt;h2&gt;安装 Emacs 和 SLIME&lt;/h2&gt;
+&lt;p&gt;首先确保你安装了 &lt;a href=&quot;https://www.gnu.org/software/emacs/&quot;&gt;Emacs&lt;/a&gt;，如果没有同样可以使用Homebrew快速安装（推荐安装最新版本）：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;$ brew install emacs --with-cocoa
+# or use MacPorts
+# sudo port install emacs-app&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;https://common-lisp.net/project/slime/&quot;&gt;SLIME&lt;/a&gt; 是基于Emacs构建的Common Lisp IDE。它的安装方式大概有两种：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;This however showed weasel&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Well uncritical so misled&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;this is very interesting&lt;/li&gt;
+&lt;li&gt;从MELPA获取SLIME，通过Emacs内置的包管理器进行安装&lt;/li&gt;
+&lt;li&gt;直接从git仓库安装&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Goodness much until that fluid owl&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;When she reached the first hills of the &lt;strong&gt;Italic Mountains&lt;/strong&gt;, she had a last
-view back on the skyline of her hometown &lt;em&gt;Bookmarksgrove&lt;/em&gt;, the headline of
-&lt;a href=&quot;http://google.com&quot;&gt;Alphabet Village&lt;/a&gt; and the subline of her own road, the Line
-Lane. Pityful a rethoric question ran over her cheek, then she continued her
-way. On her way she met a copy.&lt;/p&gt;
-&lt;h3&gt;Overlaid the jeepers uselessly much excluding&lt;/h3&gt;
-&lt;p&gt;But nothing the copy said could convince her and so it didn’t take long until a
-few insidious Copy Writers ambushed her, made her drunk with
-&lt;a href=&quot;http://google.com&quot;&gt;Longe and Parole&lt;/a&gt; and dragged her into their agency, where
-they abused her for their projects again and again. And if she hasn’t been
-rewritten, then they are still using her.&lt;/p&gt;
+&lt;p&gt;这里我们采用第一种方式（*其他方式请参考：&lt;a href=&quot;https://common-lisp.net/project/slime/doc/html/Installation.html%EF%BC%89%E3%80%82&quot;&gt;https://common-lisp.net/project/slime/doc/html/Installation.html）。&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;为了能够让 Emacs 从 &lt;a href=&quot;https://github.com/melpa/melpa&quot;&gt;MELPA&lt;/a&gt; 仓库获取安装包，我们需要添加一些配置到&lt;code class=&quot;language-text&quot;&gt;~/.emacs&lt;/code&gt;文件中（如果没有则创建一个）：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;commonlisp&quot;&gt;&lt;pre class=&quot;language-commonlisp&quot;&gt;&lt;code class=&quot;language-commonlisp&quot;&gt;(require &amp;#39;package)
+(let* ((no-ssl (and (memq system-type &amp;#39;(windows-nt ms-dos))
+                    (not (gnutls-available-p))))
+       (proto (if no-ssl &amp;quot;http&amp;quot; &amp;quot;https&amp;quot;)))
+  ;; Comment/uncomment these two lines to enable/disable MELPA and MELPA Stable as desired
+  (add-to-list &amp;#39;package-archives (cons &amp;quot;melpa&amp;quot; (concat proto &amp;quot;://melpa.org/packages/&amp;quot;)) t)
+  ;;(add-to-list &amp;#39;package-archives (cons &amp;quot;melpa-stable&amp;quot; (concat proto &amp;quot;://stable.melpa.org/packages/&amp;quot;)) t)
+  (when (&amp;lt; emacs-major-version 24)
+    ;; For important compatibility libraries like cl-lib
+    (add-to-list &amp;#39;package-archives &amp;#39;(&amp;quot;gnu&amp;quot; . (concat proto &amp;quot;://elpa.gnu.org/packages/&amp;quot;)))))
+(package-initialize)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;配置好MELPA之后，我们就可以开始安装 &lt;a href=&quot;https://github.com/slime/slime&quot;&gt;SLIME&lt;/a&gt; 了。使用如下指令：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;M-x package-install RET slime RET&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;*注：对应到键盘就是 Alt + x  package-install 回车 （等待完成）slime 回车 （等待完成）。&lt;/p&gt;
+&lt;p&gt;安装完成后，再添加一些配置到&lt;code class=&quot;language-text&quot;&gt;~/.emacs&lt;/code&gt;文件中。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;commonlisp&quot;&gt;&lt;pre class=&quot;language-commonlisp&quot;&gt;&lt;code class=&quot;language-commonlisp&quot;&gt;;; Set your lisp system and, optionally, some contribs
+(setq inferior-lisp-program &amp;quot;/usr/local/bin/sbcl&amp;quot;)
+(setq slime-contribs &amp;#39;(slime-fancy))&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;注意第二行的&lt;code class=&quot;language-text&quot;&gt;/usr/local/bin/sbcl&lt;/code&gt;，这里应该写你本机上 sbcl 二进制文件的路径，所以可能视个人情况不同修改。&lt;/p&gt;
+&lt;h2&gt;启动 SLIME !!!&lt;/h2&gt;
+&lt;p&gt;现在所有的环境就配置完成，打开Emacs，输入&lt;code class=&quot;language-text&quot;&gt;M-x&lt;/code&gt;，然后在底部的buffer区输入 &lt;code class=&quot;language-text&quot;&gt;slime&lt;/code&gt;，SLIME将会启动并连接至你的Lisp编译器。&lt;/p&gt;
+&lt;p&gt;让我们先来演示一个Hello World吧~输入下面的代码：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;commonlisp&quot;&gt;&lt;pre class=&quot;language-commonlisp&quot;&gt;&lt;code class=&quot;language-commonlisp&quot;&gt;(format t &amp;quot;Hello, world!&amp;quot;)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;你将会看到下图的效果。&lt;/p&gt;
+&lt;img width=&quot;591&quot; alt=&quot;lisphelloworld&quot; src=&quot;https://user-images.githubusercontent.com/30484000/45913959-ebb5af00-be6f-11e8-9ee3-cc2cce731bb6.png&quot;&gt;
+&lt;p&gt;开始你的Lisp之路吧！&lt;/p&gt;
+&lt;h2&gt;Reference&lt;/h2&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and
-Consonantia, there live the blind texts. Separated they live in Bookmarksgrove
-right at the coast of the Semantics, a large language ocean.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://lisp-lang.org/learn/getting-started/&quot;&gt;http://lisp-lang.org/learn/getting-started/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/slime/slime&quot;&gt;https://github.com/slime/slime&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/melpa/melpa&quot;&gt;https://github.com/melpa/melpa&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://common-lisp.net/project/slime/doc/html/Installation.html&quot;&gt;https://common-lisp.net/project/slime/doc/html/Installation.html&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;It is a paradisematic country, in which roasted parts of sentences fly into your
-mouth. Even the all-powerful Pointing has no control about the blind texts it is
-an almost unorthographic life One day however a small line of blind text by the
-name of Lorem Ipsum decided to leave for the far World of Grammar.&lt;/p&gt;
-&lt;h3&gt;According a funnily until pre-set or arrogant well cheerful&lt;/h3&gt;
-&lt;p&gt;The Big Oxmox advised her not to do so, because there were thousands of bad
-Commas, wild Question Marks and devious Semikoli, but the Little Blind Text
-didn’t listen. She packed her seven versalia, put her initial into the belt and
-made herself on the way.&lt;/p&gt;
+&lt;p&gt;（完）&lt;/p&gt;</content:encoded></item><item><title><![CDATA[使用npm update 和 npm outdated 更新依赖]]></title><description><![CDATA[Using npm update and npm outdated to update dependencies  By  PANU PITKÄMÄKI 更新一个库的新版本并不容易。Semantic versioning screws things just enough…]]></description><link>https://gatsby-starter-blog-demo.netlify.com// use-npm-update-and-npm-outdated-to-update-dependencies/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com// use-npm-update-and-npm-outdated-to-update-dependencies/</guid><pubDate>Tue, 26 Jun 2018 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://bytearcher.com/articles/using-npm-update-and-npm-outdated-to-update-dependencies/&quot;&gt;Using npm update and npm outdated to update dependencies&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt; By &lt;a href=&quot;https://bytearcher.com/contact/&quot;&gt;PANU PITKÄMÄKI&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;更新一个库的新版本并不容易。Semantic versioning screws things just enough, 所以手动修改&lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt;文件的方式要比尝试npm杂技更安全一些。这篇文章将介绍如何只使用npm从命令行更新依赖。&lt;/p&gt;
+&lt;h2&gt;使用 npm update 更新至最接近版本&lt;/h2&gt;
+&lt;p&gt;当你在一个新项目上运行&lt;code class=&quot;language-text&quot;&gt;npm install&lt;/code&gt; ，npm将安装满足&lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt;文件中语义版本控制定义的范围的最新版本。初始化安装后，再次运行&lt;code class=&quot;language-text&quot;&gt;npm install&lt;/code&gt;将不会更新已存在的包，这是因为npm已经在文件系统中找到了满足要求的版本。&lt;/p&gt;
+&lt;p&gt;你可以使用&lt;code class=&quot;language-text&quot;&gt;npm update&lt;/code&gt;来更新已安装的包，而不是&lt;code class=&quot;language-text&quot;&gt;npm install&lt;/code&gt;。当你运行&lt;code class=&quot;language-text&quot;&gt;npm update&lt;/code&gt;时，npm将检查是否有满足语义版本控制要求的更新版本（newer versions）并安装它们。&lt;/p&gt;
+&lt;p&gt;假设我们依赖lodash的版本为&lt;code class=&quot;language-text&quot;&gt;^3.9.3&lt;/code&gt;，且该版本安装在&lt;code class=&quot;language-text&quot;&gt;node_modules/lodash&lt;/code&gt;目录下。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token property&quot;&gt;&quot;dependencies&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;lodash&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;^3.9.2&quot;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;然后运行&lt;code class=&quot;language-text&quot;&gt;npm update&lt;/code&gt;将会安装版本&lt;code class=&quot;language-text&quot;&gt;3.10.1&lt;/code&gt;至相同目录下，但是&lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt;并未修改（你可以通过传入 —save 选项来改变）。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ npm update
+└── lodash@3.10.1&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;使用@latest标记进行更大的更新&lt;/h2&gt;
+&lt;p&gt;要更新超出语义版本控制范围的版本需要两个部分。&lt;/p&gt;
+&lt;p&gt;第一，使用&lt;code class=&quot;language-text&quot;&gt;npm outdated&lt;/code&gt;要求npm列出有更新版本的包。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ npm outdated
+Package  Current  Wanted  Latest  Location
+lodash    3.10.1  3.10.1  4.16.4  backend&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;第二，让npm安装最新版本的包。你可以使用&lt;code class=&quot;language-text&quot;&gt;@latest&lt;/code&gt;标记索取最新版本。你也应该使用&lt;code class=&quot;language-text&quot;&gt;--save&lt;/code&gt;标记更新&lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt;文件。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ npm install lodash@latest --save&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;现在npm将安装&lt;code class=&quot;language-text&quot;&gt;4.16.4&lt;/code&gt;版本至&lt;code class=&quot;language-text&quot;&gt;node_modules/&lt;/code&gt;目录下。同时，&lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt;也被更新。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token property&quot;&gt;&quot;dependencies&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token property&quot;&gt;&quot;lodash&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;^4.16.4&quot;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;（完）&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Angular组件共享数据的四种方法]]></title><description><![CDATA[Sharing Data Between Angular Components - Four Methods Arp 30, 2017 by Jeff Delaney 在深入您的第一个Anguar…]]></description><link>https://gatsby-starter-blog-demo.netlify.com//sharing-data-between-angular-components/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com//sharing-data-between-angular-components/</guid><pubDate>Fri, 25 May 2018 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://angularfirebase.com/lessons/sharing-data-between-angular-components-four-methods/&quot;&gt;Sharing Data Between Angular Components - Four Methods&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Arp 30, 2017 by Jeff Delaney&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在深入您的第一个Anguar项目前，需要理解一个重要的概念 — 数据共享。在这节课程里，我将提供四种用于Angular组件之间共享数据的方法。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/30484000/40373721-193a9e7e-5e1a-11e8-8033-67563c98ebbc.png&quot; alt=&quot;parent-child-sibling-angular-components-1024x598&quot;&gt;&lt;/p&gt;
+&lt;p&gt;我们Angular app的&lt;em&gt;父-子-同胞&lt;/em&gt;结构。&lt;/p&gt;
+&lt;h2&gt;父组件至子组件：通过&lt;code class=&quot;language-text&quot;&gt;Input()&lt;/code&gt;共享数据&lt;/h2&gt;
+&lt;p&gt;这可能是共享数据的方法中最常见和最直接的。它通过使用&lt;code class=&quot;language-text&quot;&gt;Input()&lt;/code&gt;装饰器（decorator）以使数据能够通过模版（template）传递。&lt;/p&gt;
+&lt;p&gt;# parent.component.ts&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; Component &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;@angular/core&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+@&lt;span class=&quot;token function&quot;&gt;Component&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    selector&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;app-parent&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    template&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token string&quot;&gt;`
+    	&amp;lt;app-child [childMessage]=&quot;parentMessage&quot;&gt;&amp;lt;/app-child&gt;
+    `&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    styleUrls&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;./parent.component.css&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ParentComponent&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    parentMessage &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;message from parent&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;# child.component.ts&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; Component&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; Input &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;@angular/core&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+@&lt;span class=&quot;token function&quot;&gt;Component&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    selector&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;app-child&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    template&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token string&quot;&gt;`
+    	Say {{message}}
+    `&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    StyleUrls&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;./child.component.css&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ChildComponent&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    @&lt;span class=&quot;token function&quot;&gt;Input&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; childMessage&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    
+    &lt;span class=&quot;token function&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;子组件至父组件：通过&lt;code class=&quot;language-text&quot;&gt;ViewChild()&lt;/code&gt;共享数据&lt;/h2&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;ViewChild&lt;/code&gt;允许一个组件注入到另外一个组件中，父组件可以访问子组件的属性和功能。但是需要注意⚠️，子组件在视图初始化之后才可用。这意味着我们需要实现&lt;code class=&quot;language-text&quot;&gt;AfterViewInit&lt;/code&gt;生命周期钩子以接收子组件的数据。&lt;/p&gt;
+&lt;p&gt;# parent.component.ts&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; Component&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; ViewChild&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; AfterViewInit &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;@angular/core&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+@&lt;span class=&quot;token function&quot;&gt;Component&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    selector&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;app-parent&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    template&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token string&quot;&gt;`
+    	Message: {{message}}
+    	&amp;lt;app-child&gt;&amp;lt;/app-child&gt;
+    `&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    styleUrls&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;./parent.component.css&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ParentComponent&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;AfterViewInit&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    @&lt;span class=&quot;token function&quot;&gt;ViewChild&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;ChildComponent&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; child&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    
+    &lt;span class=&quot;token function&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    
+    message&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    
+    &lt;span class=&quot;token function&quot;&gt;ngAfterViewInit&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;message &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;child&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;message&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;# child.component.ts&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; Component &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;@angular/core&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+@&lt;span class=&quot;token function&quot;&gt;Component&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    
+    message&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Hola Mundo&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    
+    &lt;span class=&quot;token function&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;子组件至父组件： 通过&lt;code class=&quot;language-text&quot;&gt;Output()&lt;/code&gt;和&lt;code class=&quot;language-text&quot;&gt;EventEmitter&lt;/code&gt;共享数据&lt;/h2&gt;
+&lt;p&gt;另外一个共享数据的方法是从子组件发出（emit）数据，which can be listed to by the parent.当您想要分享如按钮点击、表单事件和其他用户事件等发生的数据更改时，此方法非常理想。&lt;/p&gt;
+&lt;p&gt;在父组件中，我们创建一个方法去接收信息并将其设置与&lt;code class=&quot;language-text&quot;&gt;message&lt;/code&gt;变量相等。&lt;/p&gt;
+&lt;p&gt;在子组件中，我们使用&lt;code class=&quot;language-text&quot;&gt;Output&lt;/code&gt;修饰符声明一个&lt;code class=&quot;language-text&quot;&gt;messageEvent&lt;/code&gt;变量并将其设置为一个新的事件发生器（event emitter）。然后我们创建一个名为&lt;code class=&quot;language-text&quot;&gt;sendMessage&lt;/code&gt;的函数，该函数调用在此事件上的emit方法发送我们想要传递的信息。最后，我们创建一个按钮用来触发这个函数。&lt;/p&gt;
+&lt;p&gt;此时父组件可以订阅这个由子组件发出的&lt;code class=&quot;language-text&quot;&gt;messageEvent&lt;/code&gt;事件，然后在该事件发生时运行消息接收函数。&lt;/p&gt;
+&lt;p&gt;# parent.component.ts&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; Component &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;@angular/core&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+@&lt;span class=&quot;token function&quot;&gt;Component&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    selector&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;app-parent&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    tempate&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token string&quot;&gt;`
+    	Message: {{message}}
+    	&amp;lt;app-child (messageEvent)=&quot;receiveMessage($event)&quot;&gt;&amp;lt;/app-child&gt;
+    `&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    styleUrls&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;./parent.component.css&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ParentComponent&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    
+    message&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    
+    &lt;span class=&quot;token function&quot;&gt;receiveMessage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;$event&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;message &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; $event&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;# child.component.ts&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; Component&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; Output&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; EventEmitter &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;@angular/core&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+@&lt;span class=&quot;token function&quot;&gt;Component&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    selector&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;app-child&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    template&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token string&quot;&gt;`
+    	&amp;lt;button (click)=&quot;sendMessage()&quot;Send Message&amp;lt;/button&gt;
+    `&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    styleUrls&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;./child.component.css&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ChildComponent&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    message&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Hola Mundo&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    
+    @&lt;span class=&quot;token function&quot;&gt;Output&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; messageEvent &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;EventEmitter&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;string&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    
+    &lt;span class=&quot;token function&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    
+    &lt;span class=&quot;token function&quot;&gt;sendMessage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;messageEvent&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;emit&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;message&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;不相关组件：通过Service共享数据&lt;/h2&gt;
+&lt;p&gt;当需要在两个没有直接联系的组件（如同胞组件，孙辈组件等）间传递数据时，您应该提供一个共享服务。当您的数据需要时刻保持同步时，我发现 &lt;a href=&quot;https://xgrommx.github.io/rx-book/content/subjects/behavior_subject/index.html&quot;&gt;RxJS BehaviorSubject&lt;/a&gt; 在这种场景非常好用。&lt;/p&gt;
+&lt;p&gt;你也可以使用一般的RxJS Subject提供服务共享数据，但我更倾向于使用BehaviorSubject的原因是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;它将时刻返回订阅的当前值 - 所以没必要去调用&lt;code class=&quot;language-text&quot;&gt;onnext&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;它有一个&lt;code class=&quot;language-text&quot;&gt;getValue()&lt;/code&gt;方法用来提取最新值作为原始数据（raw data）&lt;/li&gt;
+&lt;li&gt;它能确保组件时刻接收最新的数据&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在服务中，我们创建一个私有BehaviorSubject来保存消息的当前值。我们定义一个&lt;code class=&quot;language-text&quot;&gt;currentMessage&lt;/code&gt;变量来处理这个数据流，作为一个被组件使用的可观察对象。最后，我们在BehaviorSubject上创建一个函数调用next方法来改变它的值。&lt;/p&gt;
+&lt;p&gt;父组件、子组件和同胞组件都会有相同的接收。我们在constructor中注入DataService，然后订阅&lt;code class=&quot;language-text&quot;&gt;currentMessage&lt;/code&gt;可观察对象并将其值设置为与&lt;code class=&quot;language-text&quot;&gt;message&lt;/code&gt;变量相等。&lt;/p&gt;
+&lt;p&gt;现在，我们在这些组件中的任一组件中创建一个函数用来改变&lt;code class=&quot;language-text&quot;&gt;message&lt;/code&gt;的值，当这个函数执行时，新的数据会自动传播到其他所有的组件中。&lt;/p&gt;
+&lt;p&gt;# data.service.ts&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; Injectable &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;@angular/core&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; BehaviorSubject &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;rxjs/BehaviorSubject&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+@&lt;span class=&quot;token function&quot;&gt;Injectable&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;DataService&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; messageSource &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;BehaviorSubject&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;string&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;default message&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    currentMessage &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;messageSource&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;asObservable&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    
+    &lt;span class=&quot;token function&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    
+    &lt;span class=&quot;token function&quot;&gt;changeMessage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;message&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;messageSource&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;message&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;# parent.component.ts&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; Component&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; OnInit &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;@angular/core&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; DataService &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;../data.service&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+@&lt;span class=&quot;token function&quot;&gt;Component&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    selector&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;app-parent&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    tempate&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token string&quot;&gt;`
+		{{message}}
+	`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+	styleUrls&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;./siblings.component.css&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ParentComponent&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;OnInit&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    message&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    
+    &lt;span class=&quot;token function&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; data&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; DataService&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    
+    &lt;span class=&quot;token function&quot;&gt;ngOnInit&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;currentMessage&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;subscribe&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;message &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;message &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; message&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;# sibling.component.ts&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; Component&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; OnInit &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;@angular/core&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; DataService &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;../data.service&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+@&lt;span class=&quot;token function&quot;&gt;Component&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    selector&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;app-sibling&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    template&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token string&quot;&gt;`
+    	{{message}}
+    	&amp;lt;button (click)=&quot;newMessage()&quot;&gt;New Message&amp;lt;/button&gt;
+    `&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    styleUrls&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;./sibling.component.css&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;SiblingComponent&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;OnInit&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	message&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	
+	&lt;span class=&quot;token function&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; data&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; DataService&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+	
+	&lt;span class=&quot;token function&quot;&gt;ngOnInit&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;currentMessage&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;subscribe&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;message &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;message &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; message&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+	
+	&lt;span class=&quot;token function&quot;&gt;newMessage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;changeMessage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Hello from Sibling&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;（完）&lt;/p&gt;</content:encoded></item><item><title><![CDATA[如何利用`&`来简化你的Sass]]></title><description><![CDATA[  How To Use Ampersands To Simplify Your Sass 
+ Author:  PHILIP ZASTROW （ampersand）是一个神奇的字符。它是一个古老的符号，是来源于拉丁语“Et…]]></description><link>https://gatsby-starter-blog-demo.netlify.com//use-ampersands-to-simplify-your-sass/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com//use-ampersands-to-simplify-your-sass/</guid><pubDate>Sat, 19 May 2018 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt; &lt;a href=&quot;https://seesparkbox.com/foundry/how_to_use_ampersands_to_simplifiy_your_sass&quot;&gt;&lt;em&gt;How To Use Ampersands To Simplify Your Sass&lt;/em&gt;&lt;/a&gt;
+Author: &lt;a href=&quot;https://seesparkbox.com/foundry/author/philip_zastrow&quot;&gt;PHILIP ZASTROW&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;amp;&lt;/code&gt;（ampersand）是一个神奇的字符。它是一个古老的符号，是来源于拉丁语“Et”的一个连字符，可用于连接单词、短语和&lt;code class=&quot;language-text&quot;&gt;thoughts？&lt;/code&gt;。如今，&lt;code class=&quot;language-text&quot;&gt;&amp;amp;&lt;/code&gt;的使用变得更多样化，但是&lt;code class=&quot;language-text&quot;&gt;&amp;amp;&lt;/code&gt;仍然保持了它原始的含义 — &lt;code class=&quot;language-text&quot;&gt;and&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;as well as&lt;/code&gt; 或 &lt;code class=&quot;language-text&quot;&gt;this too&lt;/code&gt;。在Sass中，&lt;code class=&quot;language-text&quot;&gt;&amp;amp;&lt;/code&gt;引用声明块的父选择器，允许其在自己的内部被引用。这意味着，诸如伪类选择器（pseudo selectors）、同胞选择器（sibling selectors）等可以使用该选择器的其他声明来引用和分组。&lt;code class=&quot;language-text&quot;&gt;&amp;amp;&lt;/code&gt;是组织和扩展Sass的强大工具。&lt;/p&gt;
+&lt;h2&gt;伪类选择器&lt;/h2&gt;
+&lt;p&gt;在我的Sass中，&lt;code class=&quot;language-text&quot;&gt;&amp;amp;&lt;/code&gt;最常见的用途之一是伪类选择器。These include the &lt;code class=&quot;language-text&quot;&gt;:hover&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;:active&lt;/code&gt;, and &lt;code class=&quot;language-text&quot;&gt;:focus&lt;/code&gt; found accompanying selectors like &lt;code class=&quot;language-text&quot;&gt;&amp;lt;a&amp;gt;&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;&amp;lt;input&amp;gt;&lt;/code&gt;.当在Sass中使用&lt;code class=&quot;language-text&quot;&gt;&amp;amp;&lt;/code&gt;时，可以为&lt;code class=&quot;language-text&quot;&gt;&amp;lt;a&amp;gt;&lt;/code&gt;声明单个块。然后在该声明块中，&lt;code class=&quot;language-text&quot;&gt;&amp;lt;a&amp;gt;&lt;/code&gt;可以使用&lt;code class=&quot;language-text&quot;&gt;&amp;amp;:hover&lt;/code&gt;、&lt;code class=&quot;language-text&quot;&gt;&amp;amp;:active&lt;/code&gt;和&lt;code class=&quot;language-text&quot;&gt;&amp;amp;:focus&lt;/code&gt;来引用。看下面的例子：&lt;/p&gt;
+&lt;p&gt;Sass&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;scss&quot;&gt;&lt;pre class=&quot;language-scss&quot;&gt;&lt;code class=&quot;language-scss&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;a &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; #0090B2&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token selector&quot;&gt;&lt;span class=&quot;token parent important&quot;&gt;&amp;amp;&lt;/span&gt;:hover &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; #FF7A00&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token selector&quot;&gt;&lt;span class=&quot;token parent important&quot;&gt;&amp;amp;&lt;/span&gt;:active &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; #B25500&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;CSS&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; #0090B2&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token selector&quot;&gt;a:hover&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; #FF7A00&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token selector&quot;&gt;a:active&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; #B25500&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;http://sassmeister.com/gist/bcce995ec37a765e871f&quot;&gt;See this example on Sassmeister&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这些伪类选择器只是开始，还有更多如&lt;code class=&quot;language-text&quot;&gt;:nth-child&lt;/code&gt;、&lt;code class=&quot;language-text&quot;&gt;:target&lt;/code&gt;、&lt;code class=&quot;language-text&quot;&gt;:checked&lt;/code&gt;等等。&lt;/p&gt;
+&lt;h2&gt;添加一个Class或者ID&lt;/h2&gt;
+&lt;p&gt;由于&lt;code class=&quot;language-text&quot;&gt;&amp;amp;&lt;/code&gt;引用最顶端选择器，我们可以使用额外的类和/或id（就像伪类选择器一样）去扩展功能。让我们假设现在有一个&lt;code class=&quot;language-text&quot;&gt;.feature-class&lt;/code&gt;选择器，它有另外一个实例匹配选择器&lt;code class=&quot;language-text&quot;&gt;.style-class&lt;/code&gt;，添加这个类将会改变它的外观。在&lt;code class=&quot;language-text&quot;&gt;.feature-class&lt;/code&gt;声明块中，我们将声明一个以&lt;code class=&quot;language-text&quot;&gt;&amp;amp;.style-class&lt;/code&gt;开头的子块。Sass将使用&lt;code class=&quot;language-text&quot;&gt;.feature-class&lt;/code&gt;替代&lt;code class=&quot;language-text&quot;&gt;&amp;amp;&lt;/code&gt;，在生成的CSS中变成了&lt;code class=&quot;language-text&quot;&gt;.feature-class.style-class&lt;/code&gt;。让我们更新上面的例子，并将元素选择器&lt;code class=&quot;language-text&quot;&gt;&amp;lt;a&amp;gt;&lt;/code&gt;替换为类选择器&lt;code class=&quot;language-text&quot;&gt;.feature-class&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;Sass&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;scss&quot;&gt;&lt;pre class=&quot;language-scss&quot;&gt;&lt;code class=&quot;language-scss&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;.feature-class &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; #0090b2&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token selector&quot;&gt;&lt;span class=&quot;token parent important&quot;&gt;&amp;amp;&lt;/span&gt;:hover &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; #FF7A00&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token selector&quot;&gt;&lt;span class=&quot;token parent important&quot;&gt;&amp;amp;&lt;/span&gt;:active &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; #B25500&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token selector&quot;&gt;&lt;span class=&quot;token parent important&quot;&gt;&amp;amp;&lt;/span&gt;.style-class &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; #00CEFF&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token selector&quot;&gt;&lt;span class=&quot;token parent important&quot;&gt;&amp;amp;&lt;/span&gt;:hover &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; #0090b2&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;token selector&quot;&gt;&lt;span class=&quot;token parent important&quot;&gt;&amp;amp;&lt;/span&gt;:active &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; #FF7A00&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;CSS&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;.feature-class&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; #0090B2&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token selector&quot;&gt;.feature-class:hover&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; #FF7A00&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token selector&quot;&gt;.feature-class:active&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; #B25500&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token selector&quot;&gt;.feature-class.style-class&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; #00CEFF&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token selector&quot;&gt;.feature-class.style-class:hover&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; #0090B2&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token selector&quot;&gt;.feature-class.style-class:active&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; #FF7A00&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;http://sassmeister.com/gist/38e118ac945979d59d62&quot;&gt;See this example on Sassmeister.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;注意到，&lt;code class=&quot;language-text&quot;&gt;&amp;amp;.style-class&lt;/code&gt;声明块拥有自己的&lt;code class=&quot;language-text&quot;&gt;&amp;amp;:hover&lt;/code&gt;和&lt;code class=&quot;language-text&quot;&gt;&amp;amp;:active&lt;/code&gt;，它允许伪类选择器仅作用于特定组合类的实例。虽然可以进行更深层级的嵌套，但是超出四个层级后就会变得混乱并难以管理。&lt;/p&gt;
+&lt;h2&gt;子选择器中的父选择器&lt;/h2&gt;
+&lt;p&gt;理解&lt;code class=&quot;language-text&quot;&gt;&amp;amp;&lt;/code&gt;的力量的关键在于它在选择器声明中的位置。上面两个例子中，&lt;code class=&quot;language-text&quot;&gt;&amp;amp;&lt;/code&gt;都是作为第一个字符，但是它也可以被声明在后面。在包含选择器的父项导致选择器样式发生变化的情况下，我们可以从选择器的声明块中引用父选择器。这可以通过在新的声明块中&lt;code class=&quot;language-text&quot;&gt;&amp;amp;&lt;/code&gt;的前方添加父选择器来实现。所以，当我们的类&lt;code class=&quot;language-text&quot;&gt;.feature-class&lt;/code&gt;需要在作为&lt;code class=&quot;language-text&quot;&gt;.parent-class&lt;/code&gt;的子类时改变的场景下，我们可以在&lt;code class=&quot;language-text&quot;&gt;.feature-class&lt;/code&gt;声明块中作出改变。比如下面这个例子：&lt;/p&gt;
+&lt;p&gt;Sass&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;scss&quot;&gt;&lt;pre class=&quot;language-scss&quot;&gt;&lt;code class=&quot;language-scss&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;.feature-class &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; #0090B2&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token selector&quot;&gt;.parent-class &lt;span class=&quot;token parent important&quot;&gt;&amp;amp;&lt;/span&gt; &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; #00CEFF&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;CSS&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;.feature-class&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; #0090B2&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token selector&quot;&gt;.parent-class .feature-class&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; #00CEFF&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;http://sassmeister.com/gist/1b2a288ee3fac6a0d758&quot;&gt;See this example on Sassmeister.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;当我们在&lt;code class=&quot;language-text&quot;&gt;&amp;lt;html&amp;gt;&lt;/code&gt;标签上有条件类时，这个特性将非常有用。比如对于IE浏览器，我们可以简单地在声明块中添加一个&lt;code class=&quot;language-text&quot;&gt;.lt-ie9 &amp;amp;&lt;/code&gt;，即可添加任何针对IE8或更低版本的样式。&lt;/p&gt;
+&lt;h2&gt;同胞（Siblings）&lt;/h2&gt;
+&lt;p&gt;我最喜欢的使用&lt;code class=&quot;language-text&quot;&gt;&amp;amp;&lt;/code&gt;的方式是相邻同胞选择器（adjacent sibling selectors）。只要当有一个选择器需要更改，且它相邻另一个选择器时，就会出现这种类型的选择器。通常，我使用相邻同胞选择器修改相同选择器在HTML中并列排布的布局，比如段落（paragraphs）或列表项目（list items）。下面的例子，我们将设置&lt;code class=&quot;language-text&quot;&gt;&amp;lt;p&amp;gt;&lt;/code&gt;没有外边距（margin），但是当其相邻一个&lt;code class=&quot;language-text&quot;&gt;&amp;lt;p&amp;gt;&lt;/code&gt;时则添加边距。&lt;/p&gt;
+&lt;p&gt;Sass&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;scss&quot;&gt;&lt;pre class=&quot;language-scss&quot;&gt;&lt;code class=&quot;language-scss&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;p &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 0&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;line-height&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 1.5em&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token selector&quot;&gt;&lt;span class=&quot;token parent important&quot;&gt;&amp;amp;&lt;/span&gt; + &lt;span class=&quot;token parent important&quot;&gt;&amp;amp;&lt;/span&gt; &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token property&quot;&gt;margin-top&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 1em&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;CSS&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 0&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;line-height&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 1.5em&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token selector&quot;&gt;p + p&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;margin-top&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 1em&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;http://sassmeister.com/gist/b1ea527be946094462a5&quot;&gt;See this example on Sassmeister.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;当然，这不局限于相同元素。或许你不想在一个&lt;code class=&quot;language-text&quot;&gt;&amp;lt;h1&amp;gt;&lt;/code&gt;后添加外边距，除非之后紧挨着&lt;code class=&quot;language-text&quot;&gt;&amp;lt;h2&amp;gt;&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;Sass&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;scss&quot;&gt;&lt;pre class=&quot;language-scss&quot;&gt;&lt;code class=&quot;language-scss&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;h1, h2, h3 &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 0&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token selector&quot;&gt;h1 &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token selector&quot;&gt;&lt;span class=&quot;token parent important&quot;&gt;&amp;amp;&lt;/span&gt; + h2 &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;margin-top&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 1em&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;CSS&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;h1, h2, h3&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 0&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token selector&quot;&gt;h1 + h2&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;margin-top&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 1em&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;http://sassmeister.com/gist/22d0c99b50d349ac1821&quot;&gt;See this example on Sassmeister.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;同样地，通用同胞和子组合选择器都可以通过用&lt;code class=&quot;language-text&quot;&gt;+&lt;/code&gt;、&lt;code class=&quot;language-text&quot;&gt;~&lt;/code&gt;和&lt;code class=&quot;language-text&quot;&gt;&amp;gt;&lt;/code&gt;分别替换&lt;code class=&quot;language-text&quot;&gt;+&lt;/code&gt;来为声明块编写适当的样式。&lt;/p&gt;
+&lt;h2&gt;总结&lt;/h2&gt;
+&lt;p&gt;明确地，我们仅仅讨论了Sass中&lt;code class=&quot;language-text&quot;&gt;&amp;amp;&lt;/code&gt;的力量。混合使用上面讨论过的不同形式的组合，可以实现更多的效果。你可能会遇到这样的情况：你需要定位选择器的同胞，但仅当它有特定父元素时（e.g. &lt;code class=&quot;language-text&quot;&gt;.parent-class &amp;amp; + .sibling-class&lt;/code&gt;)。At that point, you can take &lt;code class=&quot;language-text&quot;&gt;&amp;amp;&lt;/code&gt; to the next level by using it with mixins and extend to make wonderfully usable code — sky’s the limit.So dream big, but not too big.&lt;/p&gt;
+&lt;p&gt;（完）&lt;/p&gt;</content:encoded></item><item><title><![CDATA[小记: 关于CSS display 属性对表格语义的影响]]></title><description><![CDATA[Short note on what CSS display properties do to table semantics Posted on Sunday, 4 March 2018 by Steve Faulkner CSS…]]></description><link>https://gatsby-starter-blog-demo.netlify.com//what-css-display-properties-do-to-table-semantics/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com//what-css-display-properties-do-to-table-semantics/</guid><pubDate>Wed, 09 May 2018 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://developer.paciellogroup.com/blog/2018/03/short-note-on-what-css-display-properties-do-to-table-semantics/&quot;&gt;&lt;em&gt;Short note on what CSS display properties do to table semantics&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Posted on Sunday, 4 March 2018 by Steve Faulkner&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;CSS的&lt;code class=&quot;language-text&quot;&gt;display&lt;/code&gt;属性非常强大。你可以用它来改变元素的视觉展示以匹配期望的样式，但有时候这样做可能会在浏览器可访问性树（&lt;a href=&quot;https://developer.paciellogroup.com/blog/2015/01/the-browser-accessibility-tree/&quot;&gt;browser accessibility tree&lt;/a&gt;）中产生意想不到的影响，如传达给屏幕阅读软件的元素的语义。通常情况下，屏幕阅读器和其他辅助技术并不能直接访问HTML DOM，他们通过可访问性API（&lt;a href=&quot;https://www.w3.org/TR/wai-aria-1.1/#dfn-accessibility-api&quot;&gt;Accessibility APIs&lt;/a&gt;）获取HTML DOM的部分信息。有时候，一个元素在HTML DOM中和可访问性树中会有不同的表示（represents）。&lt;/p&gt;
+&lt;p&gt;如果在可访问性树中的表示并不符合开发人员预期，它可能是开发人员或浏览器的错误（有意或无意的）。但我们可以确定的是，它不是屏幕阅读器的错。&lt;/p&gt;
+&lt;p&gt;一个示例&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;the good&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;具有&lt;a href=&quot;https://s.codepen.io/stevef/debug/xYBJNd#def&quot;&gt;默认&lt;code class=&quot;language-text&quot;&gt;display&lt;/code&gt;属性的数据表格&lt;/a&gt;，其在浏览器可访问性树的表示正确传达了每个元素的语义。&lt;/p&gt;
+&lt;img width=&quot;237&quot; alt=&quot;table-no-flex&quot; src=&quot;https://user-images.githubusercontent.com/30484000/37455832-034cde46-2879-11e8-959c-97b0ebb52260.png&quot;&gt;
+&lt;p&gt;每个元素在可访问性树中表示为适当的角色，例如：a &lt;code class=&quot;language-text&quot;&gt;table&lt;/code&gt; element has a &lt;code class=&quot;language-text&quot;&gt;role=table&lt;/code&gt;。&lt;/p&gt;
+&lt;img width=&quot;259&quot; alt=&quot;table-role&quot; src=&quot;https://user-images.githubusercontent.com/30484000/37455895-24b7ba2e-2879-11e8-85b2-33652e398fe5.png&quot;&gt;
+&lt;p&gt;&lt;strong&gt;the bad&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;当设置table元素的&lt;code class=&quot;language-text&quot;&gt;display&lt;/code&gt;属性为&lt;code class=&quot;language-text&quot;&gt;block&lt;/code&gt;、&lt;code class=&quot;language-text&quot;&gt;grid&lt;/code&gt;或&lt;code class=&quot;language-text&quot;&gt;flex&lt;/code&gt;时，不好的事情发生了。&lt;code class=&quot;language-text&quot;&gt;table&lt;/code&gt;元素将不再表示为&lt;code class=&quot;language-text&quot;&gt;table&lt;/code&gt;（在可访问性树中），表格行元素/语义不以任何形式表示。&lt;/p&gt;
+&lt;img width=&quot;279&quot; alt=&quot;block&quot; src=&quot;https://user-images.githubusercontent.com/30484000/37455924-37bdd0e0-2879-11e8-959a-7ddf14e60e12.png&quot;&gt;
+&lt;p&gt;在可访问性树中，没有任何元素以数据表格语义表示，它们的角色都分配为&lt;code class=&quot;language-text&quot;&gt;role=Text frame&lt;/code&gt;。&lt;/p&gt;
+&lt;img width=&quot;194&quot; alt=&quot;block-role&quot; src=&quot;https://user-images.githubusercontent.com/30484000/37455937-3ee91460-2879-11e8-9c17-e1264e8b68d7.png&quot;&gt;
+&lt;p&gt;可以使用ARIA&lt;code class=&quot;language-text&quot;&gt;table/row/colunmheader/rowheader/cell&lt;/code&gt;角色（参见ARIA &lt;a href=&quot;https://www.w3.org/TR/wai-aria-practices-1.1/#table&quot;&gt;table design pattern&lt;/a&gt; ）添加语义来解决这个问题，但这对开发者来说是本不应该需要的繁重工作。 在这种情况下，&lt;a href=&quot;https://bugzilla.mozilla.org/show_bug.cgi?id=1005271&quot;&gt;浏览器不该混淆表格语义&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;If nothing else, a developer should be aware that it is not always the fault of the assistive technology when we can’t have &lt;a href=&quot;http://kizu.ru/en/blog/variable-order/&quot;&gt;nice things&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;相关阅读&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://adrianroselli.com/2018/02/tables-css-display-properties-and-aria.html&quot;&gt;Tables, CSS Display Properties, and ARIA&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;（完）&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Angualr 组件之间如何通讯？]]></title><description><![CDATA[场景一：通过输入型绑定把数据从父组件传到子组件 使用 装饰器。 例如： 再看下父组件（部分省略）： 效果如下： 场景二：通过setter截听输入属性值的变化 使用输入属性的setter…]]></description><link>https://gatsby-starter-blog-demo.netlify.com//angular-components-communicate/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com//angular-components-communicate/</guid><pubDate>Mon, 30 Apr 2018 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;场景一：通过输入型绑定把数据从父组件传到子组件&lt;/p&gt;
+&lt;p&gt;使用&lt;code class=&quot;language-text&quot;&gt;@Input&lt;/code&gt;装饰器。&lt;/p&gt;
+&lt;p&gt;例如：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// 一个子组件 hero-child.component.ts&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; Component&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; Input &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;@angular/core&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; Hero &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;./hero&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+@&lt;span class=&quot;token function&quot;&gt;Component&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    selector&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;app-hero-child&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    template&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token string&quot;&gt;`
+    	&amp;lt;h3&gt;{{hero.name}} says:&amp;lt;/h3&gt;
+    	&amp;lt;p&gt;I, {{hero.name}}, am at your service, {{masterName}}.&amp;lt;/p&gt;
+    `&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;HeroChildCompoent&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    @&lt;span class=&quot;token function&quot;&gt;Input&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; hero&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Hero&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    @&lt;span class=&quot;token function&quot;&gt;Input&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;master&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; masterName&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 指定别名&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;再看下父组件（部分省略）：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+@&lt;span class=&quot;token function&quot;&gt;Component&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+    template&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token string&quot;&gt;`
+    	&amp;lt;h2&gt;{{master}} controls {{heroes.length}} heroes&amp;lt;/h2&gt;
+    	&amp;lt;app-hero-child *ngFor=&quot;let hero of heroes&quot;
+    		[hero]=&quot;hero&quot;
+    		[master]=&quot;master&quot;
+    	&amp;lt;/app-hero-child&gt;
+    `&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;效果如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/30484000/37081541-b5fc6aa8-2224-11e8-87bf-2170d6fadbd0.png&quot; alt=&quot;parent-to-child&quot;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;场景二：通过setter截听输入属性值的变化&lt;/p&gt;
+&lt;p&gt;使用输入属性的setter，以拦截父组件中值的变化，并作出响应。&lt;/p&gt;
+&lt;p&gt;例如：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// 一个子组件，输入属性`name`的setter会trim掉名字中的空格，并把空格替换为默认字符串&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+@&lt;span class=&quot;token function&quot;&gt;Component&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    selector&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;app-name-child&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    template&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&amp;lt;h3&gt;&quot;{{name}}&quot;&amp;lt;/h3&gt;&apos;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;NameChildComponent&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; _name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    
+    @&lt;span class=&quot;token function&quot;&gt;Input&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;name&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;_name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;name &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; name&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;trim&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&amp;lt;no name set&gt;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    
+    &lt;span class=&quot;token keyword&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;_name&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr&gt;
+&lt;p&gt;场景三：通过&lt;code class=&quot;language-text&quot;&gt;ngOnChanges()&lt;/code&gt;来截听输入属性值的变化&lt;/p&gt;
+&lt;p&gt;当需要监听多个、交互式输入属性的时候，此方法比setter更合适。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+@&lt;span class=&quot;token function&quot;&gt;Component&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    selector&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;app-version-child&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    template&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token string&quot;&gt;`
+        &amp;lt;h3&gt;Version {{major}}.{{minor}}&amp;lt;/h3&gt;
+    	&amp;lt;h4&gt;Change log:&amp;lt;/h4&gt;
+	    &amp;lt;ul&gt;
+			&amp;lt;li *ngFor=&quot;let change of changeLog&quot;&gt;{{change}}&amp;lt;/li&gt;
+	    &amp;lt;/ul&gt;
+    `&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;VersionChildComponent&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;OnChanges&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    @&lt;span class=&quot;token function&quot;&gt;Input&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; major&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    @&lt;span class=&quot;token function&quot;&gt;Input&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; minor&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    changeLog&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    
+    &lt;span class=&quot;token function&quot;&gt;ngOnChanges&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;changes&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;propKey&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; SimpleChange&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; log&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; propName &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; changes&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; changedProp &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; changes&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;propName&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; to &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;stirngify&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;changedProp&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;currentValue&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;changedProp&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;isFirstChange&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token string&quot;&gt;`Initial value of &lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;propName&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt; set to &lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;to&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;stringify&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;changedProp&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;previousValue&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;ush&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;propName&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;`&lt;/span&gt;&lt;/span&gt; change &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; to $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;to&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;changeLog&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;, &apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr&gt;
+&lt;p&gt;场景四：父组件监听子组件的事件&lt;/p&gt;
+&lt;p&gt;也就是子 -&gt; 父传递数据。&lt;/p&gt;
+&lt;p&gt;需要子组件暴露一个&lt;code class=&quot;language-text&quot;&gt;EventEmitter&lt;/code&gt;属性，当事件发生时，子组件利用该属性&lt;code class=&quot;language-text&quot;&gt;emits&lt;/code&gt;（向上弹射）事件。父组件绑定这个事件属性，并在事件发生时作出响应。&lt;/p&gt;
+&lt;p&gt;NEW: 使用&lt;code class=&quot;language-text&quot;&gt;@Output&lt;/code&gt;装饰器。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+@&lt;span class=&quot;token function&quot;&gt;Component&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    selector&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;app-voter&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    template&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token string&quot;&gt;`
+    	&amp;lt;h4&gt;{{name}}&amp;lt;/h4&gt;
+    	&amp;lt;button (click)=&quot;vote(true)&quot; [disabled]=&quot;voted&quot;&gt;Agress&amp;lt;/button&gt;
+		&amp;lt;button (click)=&quot;vote(false)&quot; [disabled]=&quot;voted&quot;&gt;Disagree&amp;lt;/button&gt;
+    `&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;VoterComponent&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	@&lt;span class=&quot;token function&quot;&gt;Input&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; name&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	@&lt;span class=&quot;token function&quot;&gt;Output&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; onVoted &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;EventEmitter&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;boolean&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	
+	voted &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token function&quot;&gt;vote&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;agreed&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;boolean&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;onVoted&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;emit&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;agreed&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;voted &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;父组件绑定一个事件处理器：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+@&lt;span class=&quot;token function&quot;&gt;Component&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    template&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token string&quot;&gt;`
+    	&amp;lt;app-voter
+    		[name]=&quot;voter&quot;
+    		(onVoted)=&quot;onVoted($event)&quot;
+    	&gt;&amp;lt;/app-voter&gt;
+    `&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;VotedTakerComponent&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;onVoted&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;agreed&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;boolean&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        agreed &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;agreed&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;disagreed&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr&gt;
+&lt;p&gt;场景五： 父子组件通过本地变量互动&lt;/p&gt;
+&lt;p&gt;父组件可以在模版里新建一个本地变量代表子组件，然后利用这个变量来读取子组件的属性和调用子组件的方法。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// parent&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+@&lt;span class=&quot;token function&quot;&gt;Component&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    template&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token string&quot;&gt;`
+    	&amp;lt;h3&gt;Countdown to Liftoff (via local variable)&amp;lt;/h3&gt;
+    	&amp;lt;button (click)=&quot;timer.start()&quot;&gt;Start&amp;lt;/button&gt;
+    	&amp;lt;button (click)=&quot;timer.stop()&quot;&gt;Stop&amp;lt;/button&gt;
+    	&amp;lt;div&gt; class=&quot;seconds&quot;&gt;{{timer.seconds}}&amp;lt;/div&gt;
+    	&amp;lt;app-countdown-timer #timer&gt;&amp;lt;/app-countdown-timer&gt;
+    `&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;CountdownLocalVarParentComponent&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;本地变量 —&gt; &lt;code class=&quot;language-text&quot;&gt;#timer&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;场景六： 父组件调用&lt;code class=&quot;language-text&quot;&gt;@ViewChild()&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;本地变量的方法有个局限性：父组件本身的代码对子组件没有访问权。&lt;/p&gt;
+&lt;p&gt;当父组件类需要访问子组件数据时，可以把子组件作为&lt;em&gt;ViewChild&lt;/em&gt;，注入到父组件里面。&lt;/p&gt;
+&lt;p&gt;父组件：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; CountdownTimerComponent &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;@angualr/core&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+@&lt;span class=&quot;token function&quot;&gt;Component&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;CountdownViewChildParentComponent&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;AfterViewInit&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    @&lt;span class=&quot;token function&quot;&gt;ViewChild&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;CountdownTimerComponent&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; timerComponent&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; CountdownTimerComponent&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    
+    &lt;span class=&quot;token function&quot;&gt;seconds&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    
+    &lt;span class=&quot;token function&quot;&gt;ngAfterViewInit&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token comment&quot;&gt;// Redefine `seconds()` to get from the `CountdownTimerComponent.seconds` ...&lt;/span&gt;
+        &lt;span class=&quot;token comment&quot;&gt;// but wait a tick first to avoid one-time devMode&lt;/span&gt;
+        &lt;span class=&quot;token comment&quot;&gt;// unidirectional-data-flow-violation error&lt;/span&gt;
+        &lt;span class=&quot;token function&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;seconds&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;timerComponent&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;seconds&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    
+    &lt;span class=&quot;token function&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;timerComponent&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;stop&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;timerComponent&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;stop&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;注意：Angular的单向数据流规则会阻止在同一个周期内更新父组件视图。&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;场景七： 父子组件通过服务来通讯&lt;/p&gt;
+&lt;p&gt;（未完）&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Flex 语法总结]]></title><description><![CDATA[一、声明为Flex布局 注意 ： webkit内核浏览器，必须加 前缀。 子元素的 、 、 属性将失效 二、基本概念 参考上图： flex container ／ flex item main axis （main start | main end） cross axis…]]></description><link>https://gatsby-starter-blog-demo.netlify.com//flex-grammar/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com//flex-grammar/</guid><pubDate>Sun, 22 Apr 2018 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;一、声明为Flex布局&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;.box&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token property&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; flex&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;/* container */&lt;/span&gt;
+&lt;span class=&quot;token selector&quot;&gt;.inline-box&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token property&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; inline-flex&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;/* inline */&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;注意&lt;/em&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;webkit内核浏览器，必须加&lt;code class=&quot;language-text&quot;&gt;-webkit&lt;/code&gt;前缀。&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;子元素的&lt;code class=&quot;language-text&quot;&gt;float&lt;/code&gt;、&lt;code class=&quot;language-text&quot;&gt;clear&lt;/code&gt;、&lt;code class=&quot;language-text&quot;&gt;vertical-align&lt;/code&gt;属性将失效&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;二、基本概念&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/30484000/37039826-593142e4-2193-11e8-94a9-db666511e31e.png&quot; alt=&quot;flex&quot;&gt;&lt;/p&gt;
+&lt;p&gt;参考上图：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;So baboon this&lt;/li&gt;
-&lt;li&gt;Mounted militant weasel gregariously admonishingly straightly hey&lt;/li&gt;
-&lt;li&gt;Dear foresaw hungry and much some overhung&lt;/li&gt;
-&lt;li&gt;Rash opossum less because less some amid besides yikes jeepers frenetic
-impassive fruitlessly shut&lt;/li&gt;
+&lt;li&gt;flex container ／ flex item&lt;/li&gt;
+&lt;li&gt;main axis （main start | main end）&lt;/li&gt;
+&lt;li&gt;cross axis（cross start | cross end）&lt;/li&gt;
+&lt;li&gt;item沿主轴排列 - 占据空间 main size | cross size&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;When she reached the first hills of the Italic Mountains, she had a last view
-back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet
-Village and the subline of her own road, the Line Lane. Pityful a rethoric
-question ran over her cheek, then she continued her way. On her way she met a
-copy.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;The copy warned the Little Blind Text, that where it came from it would have
-been rewritten a thousand times and everything that was left from its origin
-would be the word “and” and the Little Blind Text should turn around and
-return to its own, safe country.&lt;/p&gt;
+&lt;h2&gt;三、容器属性&lt;/h2&gt;
+&lt;p&gt;overview：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;flex-direction
+flex-wrap
+flex-flow
+justify-content
+align-items
+align-content&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;flex-direction&lt;/h3&gt;
+&lt;p&gt;决定主轴方向。可能值：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;row(default): 主轴为水平方向，起点在左&lt;/li&gt;
+&lt;li&gt;row-reverse: 水平，右&lt;/li&gt;
+&lt;li&gt;column: 垂直，上沿&lt;/li&gt;
+&lt;li&gt;column: 垂直，下沿&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;flex-wrap&lt;/h3&gt;
+&lt;p&gt;item默认排在一条轴线上。该属性定义如果一条轴线排不下时如何换行。&lt;/p&gt;
+&lt;p&gt;可能值：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;nowrap(default): 不换行&lt;/li&gt;
+&lt;li&gt;wrap: 换至下行&lt;/li&gt;
+&lt;li&gt;wrap-reverse: 换至上行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;flex-flow&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;.box {
+    flex-flow: &amp;lt;flex-direction&amp;gt; || &amp;lt;flex-wrap&amp;gt;;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;default: &lt;code class=&quot;language-text&quot;&gt;row nowrap&lt;/code&gt;&lt;/p&gt;
+&lt;h3&gt;justify-content&lt;/h3&gt;
+&lt;p&gt;定义item在main axis上的对齐方式。可能值：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;flex-start(default): 左对齐&lt;/li&gt;
+&lt;li&gt;flex-end: 右对齐&lt;/li&gt;
+&lt;li&gt;center: 居中&lt;/li&gt;
+&lt;li&gt;space-between: 两端对齐，item之间的间隔相等&lt;/li&gt;
+&lt;li&gt;space-around: 每个item两侧的间隔相等。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;align-item&lt;/h3&gt;
+&lt;p&gt;定义item在cross axis上的对齐方式。可能值：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;flex-start: 交叉轴起点对齐&lt;/li&gt;
+&lt;li&gt;flex-end: 终点对齐&lt;/li&gt;
+&lt;li&gt;center: 中点对齐&lt;/li&gt;
+&lt;li&gt;baseline: item的第一行文字的基线对齐&lt;/li&gt;
+&lt;li&gt;stretch(default): 占满容器高度（如未设置高度或为auto）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;align-content&lt;/h3&gt;
+&lt;p&gt;定义了多根轴线的对齐方式。可能值：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;flex-start: 与交叉轴起点对齐&lt;/li&gt;
+&lt;li&gt;flex-end: 终点对齐&lt;/li&gt;
+&lt;li&gt;center: 中点对齐&lt;/li&gt;
+&lt;li&gt;space-between: 两端对齐，轴线之间的间隔平均分布&lt;/li&gt;
+&lt;li&gt;space-around: 每根轴线两侧间隔相等&lt;/li&gt;
+&lt;li&gt;stretch(default): 轴线占满整个交叉轴&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;四、项目属性&lt;/h2&gt;
+&lt;p&gt;overview:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;order
+flex-grow
+flex-shrink
+flex-basis
+flex
+align-self&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;order&lt;/h3&gt;
+&lt;p&gt;定义项目的排列顺序。数值越小，排列越靠前。default -&gt; 0&lt;/p&gt;
+&lt;h3&gt;flex-grow&lt;/h3&gt;
+&lt;p&gt;定义item的放大比例。default -&gt; 0，即如果存在剩余空间，也不放大。&lt;/p&gt;
+&lt;h3&gt;flex-shrink&lt;/h3&gt;
+&lt;p&gt;定义item的缩小比例。default -&gt; 1，即如果空间不足，该item将缩小。&lt;/p&gt;
+&lt;h3&gt;flex-basis&lt;/h3&gt;
+&lt;p&gt;定义在分配多余空间之前，item占据的主轴空间（main size）。default -&gt; auto，即项目的本来大小。&lt;/p&gt;
+&lt;h3&gt;flex&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;.item {
+    flex: none | [ &amp;lt;&amp;#39;flex-grow&amp;#39;&amp;gt; &amp;lt;&amp;#39;flex-shrink&amp;#39;&amp;gt;? || &amp;lt;&amp;#39;flex-basis&amp;#39;&amp;gt; ]
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;快捷值：&lt;code class=&quot;language-text&quot;&gt;auto&lt;/code&gt;(&lt;code class=&quot;language-text&quot;&gt;1 1 auto&lt;/code&gt;)和 &lt;code class=&quot;language-text&quot;&gt;none&lt;/code&gt;(&lt;code class=&quot;language-text&quot;&gt;0 0 auto&lt;/code&gt;)&lt;/p&gt;
+&lt;h3&gt;align-self&lt;/h3&gt;
+&lt;p&gt;允许单个项目与其他项目不一样的对齐方式，可覆盖&lt;code class=&quot;language-text&quot;&gt;align-items&lt;/code&gt;属性。default -&gt; auto，表示继承父元素的&lt;code class=&quot;language-text&quot;&gt;align-item&lt;/code&gt;属性。（else -&gt; stretch)&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;.item {
+    align-self: auto | flex-start | flex-end | center | baseline | stretch;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1&gt;Reference&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html&quot;&gt;http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;（完）&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Git Commit Message 编写约定]]></title><description><![CDATA[目前普遍使用的是 Angular规范 。如下图： Commit Message 格式 提交信息包括三个部分： Header ,   Body  和  Footer 。 其中，Header为必需项。任何一行不得超过72（或100）个字符。 Header Header…]]></description><link>https://gatsby-starter-blog-demo.netlify.com//git-commit-message/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com//git-commit-message/</guid><pubDate>Thu, 12 Apr 2018 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;目前普遍使用的是&lt;a href=&quot;https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit?usp=sharing&quot;&gt;Angular规范&lt;/a&gt;。如下图：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/30484000/36943790-544b9e3e-1fca-11e8-9794-e7661d170af7.png&quot; alt=&quot;bg2016010602&quot;&gt;&lt;/p&gt;
+&lt;h2&gt;Commit Message 格式&lt;/h2&gt;
+&lt;p&gt;提交信息包括三个部分：&lt;strong&gt;Header&lt;/strong&gt;,  &lt;strong&gt;Body&lt;/strong&gt; 和 &lt;strong&gt;Footer&lt;/strong&gt;。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;type&amp;gt;(&amp;lt;scope&amp;gt;): &amp;lt;subject&amp;gt;
+&amp;lt;BLANK LINE&amp;gt;
+&amp;lt;body&amp;gt;
+&amp;lt;BLANK LINE&amp;gt;
+&amp;lt;footer&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;其中，Header为必需项。任何一行不得超过72（或100）个字符。&lt;/p&gt;
+&lt;h3&gt;Header&lt;/h3&gt;
+&lt;p&gt;Header部分包括三个字段：&lt;code class=&quot;language-text&quot;&gt;type&lt;/code&gt;（必需）、 &lt;code class=&quot;language-text&quot;&gt;scope&lt;/code&gt;（可选）、&lt;code class=&quot;language-text&quot;&gt;subject&lt;/code&gt;（必需）。&lt;/p&gt;
+&lt;h4&gt;(1) type&lt;/h4&gt;
+&lt;p&gt;标明类别，只允许使用如下7个：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;feat: 新功能(feature)
+fix: 修补big
+docs: 文档(documentation)
+style: 格式(不影响代码运行的变动)
+refactor: 重构(既不是新增功能，也不是修改bug的代码改动)
+test: 增加测试
+chore: maintain&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;(2) scope&lt;/h4&gt;
+&lt;p&gt;用于说明commit影响的范围，比如数据层、控制层、视图层等。&lt;/p&gt;
+&lt;h4&gt;(3) subject&lt;/h4&gt;
+&lt;p&gt;是commit的简短描述，不超过50个字符。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;动词开头，使用第一人称现在时&lt;/li&gt;
+&lt;li&gt;第一个字母小写&lt;/li&gt;
+&lt;li&gt;结尾不加句号&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Body &amp;#x26; Footer&lt;/h3&gt;
+&lt;p&gt;暂略。详见参考。&lt;/p&gt;
+&lt;h1&gt;Reference&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html&quot;&gt;Commit message 和 Change log 编写指南 - 阮一峰&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[JavaScript: 优化循环]]></title><description><![CDATA[  原文见：  JavaScript: Optimizing loops…]]></description><link>https://gatsby-starter-blog-demo.netlify.com//optimizing-js-loops/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com//optimizing-js-loops/</guid><pubDate>Sat, 31 Mar 2018 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;  原文见： &lt;a href=&quot;https://jaysoo.ca/2009/12/23/javascript-optimizing-loops/&quot;&gt;JavaScript: Optimizing loops&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;But nothing the copy said could convince her and so it didn’t take long until a
-few insidious Copy Writers ambushed her, made her drunk with Longe and Parole
-and dragged her into their agency, where they abused her for their projects
-again and again. And if she hasn’t been rewritten, then they are still using
-her. Far far away, behind the word mountains, far from the countries Vokalia and
-Consonantia, there live the blind texts.&lt;/p&gt;
-&lt;h4&gt;Silent delightfully including because before one up barring chameleon&lt;/h4&gt;
-&lt;p&gt;Separated they live in Bookmarksgrove right at the coast of the Semantics, a
-large language ocean. A small river named Duden flows by their place and
-supplies it with the necessary regelialia. It is a paradisematic country, in
-which roasted parts of sentences fly into your mouth.&lt;/p&gt;
-&lt;p&gt;Even the all-powerful Pointing has no control about the blind texts it is an
-almost unorthographic life One day however a small line of blind text by the
-name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox
-advised her not to do so, because there were thousands of bad Commas, wild
-Question Marks and devious Semikoli, but the Little Blind Text didn’t listen.&lt;/p&gt;
-&lt;h5&gt;Wherever far wow thus a squirrel raccoon jeez jaguar this from along&lt;/h5&gt;
-&lt;p&gt;She packed her seven versalia, put her initial into the belt and made herself on
-the way. When she reached the first hills of the Italic Mountains, she had a
-last view back on the skyline of her hometown Bookmarksgrove, the headline of
-Alphabet Village and the subline of her own road, the Line Lane. Pityful a
-rethoric question ran over her cheek, then she continued her way. On her way she
-met a copy.&lt;/p&gt;
-&lt;h6&gt;Slapped cozy a that lightheartedly and far&lt;/h6&gt;
-&lt;p&gt;The copy warned the Little Blind Text, that where it came from it would have
-been rewritten a thousand times and everything that was left from its origin
-would be the word “and” and the Little Blind Text should turn around and return
-to its own, safe country. But nothing the copy said could convince her and so it
-didn’t take long until a few insidious Copy Writers ambushed her, made her drunk
-with Longe and Parole and dragged her into their agency, where they abused her
-for their projects again and again.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[My Second Post!]]></title><description><![CDATA[Wow! I love blogging so much already. Did you know that “despite its name, salted duck eggs can also be made from
-chicken eggs, though the…]]></description><link>https://gatsby-starter-blog-demo.netlify.com//my-second-post/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com//my-second-post/</guid><pubDate>Wed, 06 May 2015 23:46:37 GMT</pubDate><content:encoded>&lt;p&gt;Wow! I love blogging so much already.&lt;/p&gt;
-&lt;p&gt;Did you know that “despite its name, salted duck eggs can also be made from
-chicken eggs, though the taste and texture will be somewhat different, and the
-egg yolk will be less rich.”?
-(&lt;a href=&quot;http://en.wikipedia.org/wiki/Salted_duck_egg&quot;&gt;Wikipedia Link&lt;/a&gt;)&lt;/p&gt;
-&lt;p&gt;Yeah, I didn’t either.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Hello World]]></title><description><![CDATA[This is my first post on my new fake blog! How exciting! I’m sure I’ll write a lot more interesting things in the future. Oh, and here’s a…]]></description><link>https://gatsby-starter-blog-demo.netlify.com//hello-world/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com//hello-world/</guid><pubDate>Fri, 01 May 2015 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;This is my first post on my new fake blog! How exciting!&lt;/p&gt;
+&lt;p&gt;当你需要遍历一个非常庞大的数组时，你会发现这很有用：使用 &lt;code class=&quot;language-text&quot;&gt;while&lt;/code&gt; 循环而不是 &lt;code class=&quot;language-text&quot;&gt;for&lt;/code&gt; 循环。&lt;/p&gt;
+&lt;p&gt;例如，现在有如下的代码：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; myArray &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;10000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; i&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;myArray&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  myArray&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; i&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;你可以使用&lt;code class=&quot;language-text&quot;&gt;while&lt;/code&gt;循环让它运行的更快：&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; myArray &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;10000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; n &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; myArray&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;n&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  myArray&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;n&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; n&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;它的原理在于&lt;code class=&quot;language-text&quot;&gt;n--&lt;/code&gt;将会先返回&lt;code class=&quot;language-text&quot;&gt;n&lt;/code&gt;的值再去递减它。所以当它接近索引零时，它会计算&lt;code class=&quot;language-text&quot;&gt;1&lt;/code&gt;为&lt;code class=&quot;language-text&quot;&gt;true&lt;/code&gt;，然后在&lt;code class=&quot;language-text&quot;&gt;myArray[n]=n;&lt;/code&gt;这行之前递减&lt;code class=&quot;language-text&quot;&gt;n&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;然而，你会发现这种循环是逆向的，所以如果你对循环的顺序有要求的话就不能用这种方法。不过你仍然可以优化第一个例子—通过先将&lt;code class=&quot;language-text&quot;&gt;myArray.length&lt;/code&gt;赋值给一个变量，然后再在for循环的退出条件语句中使用它。这将会使它运行的快一些（取决于你使用的浏览器），因为这样可以避免在每次循环中都进行属性查找。（即&lt;code class=&quot;language-text&quot;&gt;myArray.length&lt;/code&gt;）。代码如下：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; myArray &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;10000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; n &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; myArray&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; i&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;n&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  myArray&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; i&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Fetch API 简介]]></title><description><![CDATA[MDN Fetch API Fetch API 提供了一个用于获取资源的接口（包括跨网络）。如果您使用过 的话将会对此比较熟悉，但是新的API提供了更强大和灵活的功能集。 1. 概念与用法 Fetch…]]></description><link>https://gatsby-starter-blog-demo.netlify.com//fetch-api-guide/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com//fetch-api-guide/</guid><pubDate>Sun, 25 Mar 2018 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API&quot;&gt;MDN Fetch API&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Fetch API 提供了一个用于获取资源的接口（包括跨网络）。如果您使用过&lt;code class=&quot;language-text&quot;&gt;XMLHttpRequest&lt;/code&gt;的话将会对此比较熟悉，但是新的API提供了更强大和灵活的功能集。&lt;/p&gt;
+&lt;h2&gt;1. 概念与用法&lt;/h2&gt;
+&lt;p&gt;Fetch提供了关于请求和响应对象（以及与网络请求相关的其他事项）的通用定义。这将允许它们在未来任何需要的地方被使用，无论是service workers, Cache API和处理或修改请求和响应的其他类似的东西，还是任何可能要求您以编程方式生成你的响应的用例。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;它还提供了对相关概念（例如：CORS and the HTTP origin header semantics）的定义，以取代它们在其他地方的独立定义。&lt;/p&gt;
+&lt;p&gt;若要创建请求并获取资源，使用&lt;code class=&quot;language-text&quot;&gt;GlobalFetch.fetch&lt;/code&gt;方法。它在多个接口中实现，特别是&lt;code class=&quot;language-text&quot;&gt;Window&lt;/code&gt;和&lt;code class=&quot;language-text&quot;&gt;WorkerGlobalScope&lt;/code&gt;。这使得它可以在几乎任何可能要获取资源的上下文中使用。&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Fetch()&lt;/code&gt;方法有一个必需参数，就是你想获取的资源的路径。它返回一个Promise对象以解析该请求的响应，无论它是成功还是失败。您也可以传入一个&lt;code class=&quot;language-text&quot;&gt;init&lt;/code&gt;选项对象作为可选的第二参数（see &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Request&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Request&lt;/code&gt;&lt;/a&gt;）。&lt;/p&gt;
+&lt;p&gt;一旦检索到响应，就可以使用多种方法定义 body 内容和如何去处理它。（see &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Body&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Body&lt;/code&gt;&lt;/a&gt;）。&lt;/p&gt;
+&lt;p&gt;你可以使用&lt;code class=&quot;language-text&quot;&gt;Request()&lt;/code&gt;和&lt;code class=&quot;language-text&quot;&gt;Response()&lt;/code&gt;构造函数直接创建一个请求和响应，但是你不太可能直接这样做。相反，这些更可能被创建为其他API操作的结果（for example, &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent/respondWith&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;FetchEvent.respondWith&lt;/code&gt;&lt;/a&gt; from service workers）。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note: 查看更多Fetch API的用法见 &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch&quot;&gt;Using Fetch&lt;/a&gt;，概念学习请查看 &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Basic_concepts&quot;&gt;Fetch basic concepts&lt;/a&gt;。&lt;/em&gt;&lt;/p&gt;
+&lt;h2&gt;2. Fetch 接口&lt;/h2&gt;
+&lt;h3&gt;2.1 &lt;code class=&quot;language-text&quot;&gt;GlobalFetch&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;包含&lt;code class=&quot;language-text&quot;&gt;fetch()&lt;/code&gt;方法，用于获取资源。&lt;/p&gt;
+&lt;h3&gt;2.2 &lt;code class=&quot;language-text&quot;&gt;Headers&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;表示响应/请求头，允许您查询它们并根据结果执行不同操作。&lt;/p&gt;
+&lt;h3&gt;2.3 &lt;code class=&quot;language-text&quot;&gt;Request&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;表示资源请求。&lt;/p&gt;
+&lt;h3&gt;2.4 &lt;code class=&quot;language-text&quot;&gt;Response&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;表示一个请求的响应。&lt;/p&gt;
+&lt;h3&gt;2.5 实验性的 fetch controller/signal/observer interface&lt;/h3&gt;
+&lt;p&gt;也被叫做“可取消fetch（cancellabel fetch）”，  下面的接口包含允许在生命周期中观察和控制fetch请求操作。&lt;/p&gt;
+&lt;h4&gt;2.5.1 &lt;code class=&quot;language-text&quot;&gt;FetchController&lt;/code&gt;&lt;/h4&gt;
+&lt;p&gt;表示一个控制器对象，该对象允许你控制一个或多个fetch请求。&lt;/p&gt;
+&lt;h4&gt;2.5.2 &lt;code class=&quot;language-text&quot;&gt;FetchSignal&lt;/code&gt;&lt;/h4&gt;
+&lt;p&gt;表示一个信号对象， 该对象允许你与一个fetch请求通信并通过&lt;code class=&quot;language-text&quot;&gt;FetchController&lt;/code&gt;控制它。&lt;/p&gt;
+&lt;h4&gt;2.5.3 &lt;code class=&quot;language-text&quot;&gt;FetchObserver&lt;/code&gt;&lt;/h4&gt;
+&lt;p&gt;表示一个观察者对象，该对象允许你检索有关fetch请求状态的信息。&lt;/p&gt;
+&lt;h4&gt;2.5.4 &lt;code class=&quot;language-text&quot;&gt;ObserverCallback&lt;/code&gt;&lt;/h4&gt;
+&lt;p&gt;Provides a callback function that runs when the fetch request it is assocated with runs. 它提供了一个&lt;code class=&quot;language-text&quot;&gt;FetchObserver&lt;/code&gt;对象，可以用于检索有关fetch请求状态的信息。&lt;/p&gt;
+&lt;h2&gt;3. Fetch mixin&lt;/h2&gt;
+&lt;h3&gt;3.1 &lt;code class=&quot;language-text&quot;&gt;Body&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;提供与响应/请求体有关的方法，允许你声明其内容类型及处理方法。&lt;/p&gt;
+&lt;h2&gt;4. 规范&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&quot;left&quot;&gt;规范&lt;/th&gt;
+&lt;th align=&quot;left&quot;&gt;状态&lt;/th&gt;
+&lt;th align=&quot;left&quot;&gt;Comment&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;https://fetch.spec.whatwg.org/&quot;&gt;Fetch&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;Living Standard&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;Initial definition&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;5. 浏览器兼容性&lt;/h2&gt;
+&lt;img width=&quot;1175&quot; alt=&quot;fetch-api&quot; src=&quot;https://user-images.githubusercontent.com/30484000/36837080-4a0047fa-1d76-11e8-943c-1f83127ad12d.png&quot;&gt;
+&lt;p&gt;[1] This API is implemented behind a preference.&lt;/p&gt;
+&lt;p&gt;[2] Prior to Firefox 52, &lt;code class=&quot;language-text&quot;&gt;get()&lt;/code&gt; only returned the first value in the specified header, with &lt;code class=&quot;language-text&quot;&gt;getAll()&lt;/code&gt; returning all values. From 52 onwards, &lt;code class=&quot;language-text&quot;&gt;get()&lt;/code&gt; now returns all values and &lt;code class=&quot;language-text&quot;&gt;getAll()&lt;/code&gt; has been removed.&lt;/p&gt;
+&lt;p&gt;[3] Hidden behind a preference in 55+ Nightly. In about:config, you need to create two new boolean prefs — &lt;code class=&quot;language-text&quot;&gt;dom.fetchObserver.enabled&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;dom.fetchController.enabled&lt;/code&gt; — and set the values of both to &lt;code class=&quot;language-text&quot;&gt;true&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;See also&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch&quot;&gt;Using Fetch&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorker_API&quot;&gt;ServiceWorker API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS&quot;&gt;HTTP access control (CORS)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTTP&quot;&gt;HTTP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/github/fetch&quot;&gt;Fetch polyfill&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Basic_concepts&quot;&gt;Fetch basic concepts&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;（完）&lt;/p&gt;</content:encoded></item><item><title><![CDATA[朝花夕拾 • CSS居中完全指南]]></title><description><![CDATA[† 参考 Centering in CSS: A Complete Guide BY  CHRIS COYIER  ON SEPTEMBER 2, 2014 附：文中涉及到了flex的一些用法，如果没有接触过flex布局，建议看一下阮一峰老师的这篇指南： Flex…]]></description><link>https://gatsby-starter-blog-demo.netlify.com//centering-in-css/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com//centering-in-css/</guid><pubDate>Mon, 12 Mar 2018 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;† 参考&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://css-tricks.com/centering-css-complete-guide/#center-horizontally&quot;&gt;Centering in CSS: A Complete Guide&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;BY &lt;a href=&quot;https://css-tricks.com/author/chriscoyier/&quot;&gt;CHRIS COYIER &lt;/a&gt;ON SEPTEMBER 2, 2014&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;附：文中涉及到了flex的一些用法，如果没有接触过flex布局，建议看一下阮一峰老师的这篇指南：&lt;a href=&quot;http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html&quot;&gt;Flex 布局教程：语法篇&lt;/a&gt;&lt;/p&gt;
+&lt;h1&gt;† 正文：Centering in CSS: A Complete Guide&lt;/h1&gt;
+&lt;p&gt;CSS居中是常被开发者抱怨的问题之一。&lt;strong&gt;Why dose it have to be so hard?? They jeer.&lt;/strong&gt; 我认为问题不在于它实现起来有多难，而是有太多能够实现它的方法。在不同的情景下，如何去选择，才是真正困惑我们的地方。&lt;/p&gt;
+&lt;p&gt;所以现在，让我们来做一个决策树，使CSS居中问题更容易解决。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/guitong/blog/master/src/images/centering-in-css.png&quot; alt=&quot;Decision Tree&quot;&gt;&lt;/p&gt;
+&lt;h2&gt;➻ 水平居中&lt;/h2&gt;
+&lt;h3&gt;—&gt; Is it inline or inline-* elements (like text or links)?&lt;/h3&gt;
+&lt;p&gt;它是行内或类行内元素吗？（比如文本和链接）&lt;/p&gt;
+&lt;p&gt;你可以将行内元素置于块级父元素内，然后用下面的CSS代码来使其水平居中：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;.center-children&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;text-align&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; center&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;iframe height=&apos;265&apos; scrolling=&apos;no&apos; title=&apos;Centering Inline Elements&apos; src=&apos;//codepen.io/chriscoyier/embed/HulzB/?height=265&amp;theme-id=light&amp;default-tab=css,result&apos; frameborder=&apos;no&apos; allowtransparency=&apos;true&apos; allowfullscreen=&apos;true&apos; style=&apos;width: 100%;&apos;&gt;See the Pen &lt;a href=&apos;https://codepen.io/chriscoyier/pen/HulzB/&apos;&gt;Centering Inline Elements&lt;/a&gt; by Chris Coyier  (&lt;a href=&apos;https://codepen.io/chriscoyier&apos;&gt;@chriscoyier&lt;/a&gt;) on &lt;a href=&apos;https://codepen.io&apos;&gt;CodePen&lt;/a&gt;.
+&lt;/iframe&gt;
+&lt;p&gt;这种方法适用于inline，inline-block，inline-table，inline-flex等类型的元素。&lt;/p&gt;
+&lt;h3&gt;—&gt; Is it a block level element?&lt;/h3&gt;
+&lt;p&gt;它是一个块级元素吗？&lt;/p&gt;
+&lt;p&gt;为了居中一个块级元素，你可以设置它的&lt;code class=&quot;language-text&quot;&gt;margin-left&lt;/code&gt;和&lt;code class=&quot;language-text&quot;&gt;margin-right&lt;/code&gt;值为&lt;code class=&quot;language-text&quot;&gt;auto&lt;/code&gt;（它的&lt;code class=&quot;language-text&quot;&gt;width&lt;/code&gt;值已给定，否则将占满容器，也就不需要居中了）。通常简写如下：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;.center-me&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 0 auto&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;iframe height=&apos;265&apos; scrolling=&apos;no&apos; title=&apos;Centering Single Block Level Element&apos; src=&apos;//codepen.io/chriscoyier/embed/eszon/?height=265&amp;theme-id=light&amp;default-tab=css,result&apos; frameborder=&apos;no&apos; allowtransparency=&apos;true&apos; allowfullscreen=&apos;true&apos; style=&apos;width: 100%;&apos;&gt;See the Pen &lt;a href=&apos;https://codepen.io/chriscoyier/pen/eszon/&apos;&gt;Centering Single Block Level Element&lt;/a&gt; by Chris Coyier  (&lt;a href=&apos;https://codepen.io/chriscoyier&apos;&gt;@chriscoyier&lt;/a&gt;) on &lt;a href=&apos;https://codepen.io&apos;&gt;CodePen&lt;/a&gt;.
+&lt;/iframe&gt;
+&lt;p&gt;无论我们将要居中的块级元素或父元素的宽度如何，这都将起作用。&lt;/p&gt;
+&lt;p&gt;注意你不能将浮动元素居中。&lt;a href=&quot;http://css-tricks.com/float-center/&quot;&gt;There is a trick though.&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;—&gt; Is there more than one block level element?&lt;/h3&gt;
+&lt;p&gt;有多个块级元素吗？&lt;/p&gt;
+&lt;p&gt;如果你需要将多个块级元素水平居中于单行，一个好的办法是改变它们的&lt;code class=&quot;language-text&quot;&gt;dispaly&lt;/code&gt;类型。这里有两个例子，分别使用了&lt;code class=&quot;language-text&quot;&gt;inline-block&lt;/code&gt;和 flexbox 方法实现：&lt;/p&gt;
+&lt;iframe height=&apos;265&apos; scrolling=&apos;no&apos; title=&apos;Centering Row of Blocks&apos; src=&apos;//codepen.io/chriscoyier/embed/ebing/?height=265&amp;theme-id=light&amp;default-tab=html,result&apos; frameborder=&apos;no&apos; allowtransparency=&apos;true&apos; allowfullscreen=&apos;true&apos; style=&apos;width: 100%;&apos;&gt;See the Pen &lt;a href=&apos;https://codepen.io/chriscoyier/pen/ebing/&apos;&gt;Centering Row of Blocks&lt;/a&gt; by Chris Coyier  (&lt;a href=&apos;https://codepen.io/chriscoyier&apos;&gt;@chriscoyier&lt;/a&gt;) on &lt;a href=&apos;https://codepen.io&apos;&gt;CodePen&lt;/a&gt;.
+&lt;/iframe&gt;
+&lt;p&gt;除非你是想让它们堆叠在一起，那么刚才使用的设置自动外边距值将仍然有效。&lt;/p&gt;
+&lt;iframe height=&apos;265&apos; scrolling=&apos;no&apos; title=&apos;Centering Blocks on Top of Each Other&apos; src=&apos;//codepen.io/chriscoyier/embed/haCGt/?height=265&amp;theme-id=light&amp;default-tab=html,result&apos; frameborder=&apos;no&apos; allowtransparency=&apos;true&apos; allowfullscreen=&apos;true&apos; style=&apos;width: 100%;&apos;&gt;See the Pen &lt;a href=&apos;https://codepen.io/chriscoyier/pen/haCGt/&apos;&gt;Centering Blocks on Top of Each Other&lt;/a&gt; by Chris Coyier  (&lt;a href=&apos;https://codepen.io/chriscoyier&apos;&gt;@chriscoyier&lt;/a&gt;) on &lt;a href=&apos;https://codepen.io&apos;&gt;CodePen&lt;/a&gt;.
+&lt;/iframe&gt;
+&lt;h2&gt;➻ 垂直居中&lt;/h2&gt;
+&lt;p&gt;垂直居中在CSS中比较棘手。&lt;/p&gt;
+&lt;h3&gt;—&gt; Is it inline or inline-* elements (like text or links) ?&lt;/h3&gt;
+&lt;p&gt;它是行内或类行内元素吗？&lt;/p&gt;
+&lt;h4&gt;~~&gt; Is it a single line?&lt;/h4&gt;
+&lt;p&gt;是单行吗？&lt;/p&gt;
+&lt;p&gt;有时行内／文本元素能垂直居中显示，仅仅是因为它们有相等的上下&lt;code class=&quot;language-text&quot;&gt;padding&lt;/code&gt;值。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;.link&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;padding-top&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 30px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;padding-bottom&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 30px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;iframe height=&apos;265&apos; scrolling=&apos;no&apos; title=&apos;Centering text (kinda) with Padding&apos; src=&apos;//codepen.io/chriscoyier/embed/ldcwq/?height=265&amp;theme-id=light&amp;default-tab=css,result&apos; frameborder=&apos;no&apos; allowtransparency=&apos;true&apos; allowfullscreen=&apos;true&apos; style=&apos;width: 100%;&apos;&gt;See the Pen &lt;a href=&apos;https://codepen.io/chriscoyier/pen/ldcwq/&apos;&gt;Centering text (kinda) with Padding&lt;/a&gt; by Chris Coyier  (&lt;a href=&apos;https://codepen.io/chriscoyier&apos;&gt;@chriscoyier&lt;/a&gt;) on &lt;a href=&apos;https://codepen.io&apos;&gt;CodePen&lt;/a&gt;.
+&lt;/iframe&gt;
+&lt;p&gt;如果由于某些原因，设置padding的方法并不可选，而你需要居中已知不会换行的文本，有一个技巧是使其&lt;code class=&quot;language-text&quot;&gt;line-height&lt;/code&gt;值与其&lt;code class=&quot;language-text&quot;&gt;height&lt;/code&gt;值相等。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;.center-text-trick&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 100px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;line-height&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 100px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;white-space&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; nowrap&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;iframe height=&apos;265&apos; scrolling=&apos;no&apos; title=&apos;Centering a line with line-height&apos; src=&apos;//codepen.io/chriscoyier/embed/LxHmK/?height=265&amp;theme-id=light&amp;default-tab=css,result&apos; frameborder=&apos;no&apos; allowtransparency=&apos;true&apos; allowfullscreen=&apos;true&apos; style=&apos;width: 100%;&apos;&gt;See the Pen &lt;a href=&apos;https://codepen.io/chriscoyier/pen/LxHmK/&apos;&gt;Centering a line with line-height&lt;/a&gt; by Chris Coyier  (&lt;a href=&apos;https://codepen.io/chriscoyier&apos;&gt;@chriscoyier&lt;/a&gt;) on &lt;a href=&apos;https://codepen.io&apos;&gt;CodePen&lt;/a&gt;.
+&lt;/iframe&gt;
+&lt;h4&gt;~~&gt; Is it multiple lines?&lt;/h4&gt;
+&lt;p&gt;是多行吗？&lt;/p&gt;
+&lt;p&gt;对于多行文本的情况，依然可以使用上下padding相等的方法使其垂直居中，但是如果这种方法失效了，可能文本所在的元素是一个table cell，不管是通过字面量定义的还是通过CSS定义的。（红叶注：这里的意思就是该元素可以是直接使用&lt;code class=&quot;language-text&quot;&gt;&amp;lt;td&amp;gt;&lt;/code&gt;表格标签声明，也可以是为元素设置&lt;code class=&quot;language-text&quot;&gt;display:table-cell;&lt;/code&gt;属性而使其成为一个table cell，父元素设置display:table; ）。如果是文本在&lt;code class=&quot;language-text&quot;&gt;&amp;lt;td&amp;gt;&lt;/code&gt;这样的元素内，该元素默认有CSS属性&lt;code class=&quot;language-text&quot;&gt;vertical-align:middle;&lt;/code&gt;，所以不需要我们显示地设置。然而，如果你是手动更改CSS使其成为table cell元素的，就需要显示地加入这个属性&lt;code class=&quot;language-text&quot;&gt;vertical-align:middle;&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;(&lt;a href=&quot;http://css-tricks.com/what-is-vertical-align/&quot;&gt;More on that.&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;下面的例子非常清晰地展示了这种方法：&lt;/p&gt;
+&lt;iframe height=&apos;265&apos; scrolling=&apos;no&apos; title=&apos;Centering text (kinda) with Padding&apos; src=&apos;//codepen.io/chriscoyier/embed/ekoFx/?height=265&amp;theme-id=light&amp;default-tab=css,result&apos; frameborder=&apos;no&apos; allowtransparency=&apos;true&apos; allowfullscreen=&apos;true&apos; style=&apos;width: 100%;&apos;&gt;See the Pen &lt;a href=&apos;https://codepen.io/chriscoyier/pen/ekoFx/&apos;&gt;Centering text (kinda) with Padding&lt;/a&gt; by Chris Coyier  (&lt;a href=&apos;https://codepen.io/chriscoyier&apos;&gt;@chriscoyier&lt;/a&gt;) on &lt;a href=&apos;https://codepen.io&apos;&gt;CodePen&lt;/a&gt;.
+&lt;/iframe&gt;
+&lt;p&gt;如果你不喜欢或者这种方法也不好使，也许你可以用flexbox？单个子flex元素可以非常轻松地在父flex元素内垂直居中。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;.flex-center-vertically&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; flex&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;justify-content&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; center&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;flex-direction&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; column&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 400px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;iframe height=&apos;265&apos; scrolling=&apos;no&apos; title=&apos;Vertical Center Multi Lines of Text with Flexbox&apos; src=&apos;//codepen.io/chriscoyier/embed/uHygv/?height=265&amp;theme-id=light&amp;default-tab=css,result&apos; frameborder=&apos;no&apos; allowtransparency=&apos;true&apos; allowfullscreen=&apos;true&apos; style=&apos;width: 100%;&apos;&gt;See the Pen &lt;a href=&apos;https://codepen.io/chriscoyier/pen/uHygv/&apos;&gt;Vertical Center Multi Lines of Text with Flexbox&lt;/a&gt; by Chris Coyier  (&lt;a href=&apos;https://codepen.io/chriscoyier&apos;&gt;@chriscoyier&lt;/a&gt;) on &lt;a href=&apos;https://codepen.io&apos;&gt;CodePen&lt;/a&gt;.
+&lt;/iframe&gt;
+&lt;p&gt;但是要记住，上面的讨论都是基于元素父容器有一个固定的高度（px，%，etc）。&lt;/p&gt;
+&lt;p&gt;如果这些方法都无法实现，你可以采用“ghost element”技术，将一个全高度的伪元素将放置于容器中，文本将与其垂直对齐。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;.ghost-center&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; relative&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token selector&quot;&gt;.ghost-center::before&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot; &quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; inline-block&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 100%&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 1%&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;vertical-align&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; middle&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token selector&quot;&gt;.ghost-center p&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; inline-block&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;vertical-align&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; middle&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;iframe height=&apos;265&apos; scrolling=&apos;no&apos; title=&apos;Ghost Centering Multi Line Text&apos; src=&apos;//codepen.io/chriscoyier/embed/ofwgD/?height=265&amp;theme-id=light&amp;default-tab=css,result&apos; frameborder=&apos;no&apos; allowtransparency=&apos;true&apos; allowfullscreen=&apos;true&apos; style=&apos;width: 100%;&apos;&gt;See the Pen &lt;a href=&apos;https://codepen.io/chriscoyier/pen/ofwgD/&apos;&gt;Ghost Centering Multi Line Text&lt;/a&gt; by Chris Coyier  (&lt;a href=&apos;https://codepen.io/chriscoyier&apos;&gt;@chriscoyier&lt;/a&gt;) on &lt;a href=&apos;https://codepen.io&apos;&gt;CodePen&lt;/a&gt;.
+&lt;/iframe&gt;
+&lt;h3&gt;—&gt; Is it a block-level element?&lt;/h3&gt;
+&lt;p&gt;它是一个块级元素吗？&lt;/p&gt;
+&lt;h4&gt;~~&gt; Do you know the height of the element?&lt;/h4&gt;
+&lt;p&gt;知道元素的高度吗？&lt;/p&gt;
+&lt;p&gt;不知道网页布局的高度是相当常见的，有很多原因：如果文本的宽度改变，那么重布局时高度就会改变；文本样式的改变会改变高度；文本数量改变会改变高度；具有固定纵横比的元素（如图像），会在尺寸改变时影响高度。Etc。&lt;/p&gt;
+&lt;p&gt;但是如果你明确地知道高度，可以像这样使其垂直居中：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;.parent&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; relative&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token selector&quot;&gt;.child&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; absolute&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 50%&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 100px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;margin-top&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; -50px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;token comment&quot;&gt;/* account for padding and border if not using box-sizing: border-box; */&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;iframe height=&apos;265&apos; scrolling=&apos;no&apos; title=&apos;Center Block with Fixed Height&apos; src=&apos;//codepen.io/chriscoyier/embed/HiydJ/?height=265&amp;theme-id=light&amp;default-tab=css,result&apos; frameborder=&apos;no&apos; allowtransparency=&apos;true&apos; allowfullscreen=&apos;true&apos; style=&apos;width: 100%;&apos;&gt;See the Pen &lt;a href=&apos;https://codepen.io/chriscoyier/pen/HiydJ/&apos;&gt;Center Block with Fixed Height&lt;/a&gt; by Chris Coyier  (&lt;a href=&apos;https://codepen.io/chriscoyier&apos;&gt;@chriscoyier&lt;/a&gt;) on &lt;a href=&apos;https://codepen.io&apos;&gt;CodePen&lt;/a&gt;.
+&lt;/iframe&gt;
+&lt;h4&gt;~~&gt; Is the element of unknown height?&lt;/h4&gt;
+&lt;p&gt;未知元素高度？&lt;/p&gt;
+&lt;p&gt;没关系。你仍然可以使用类似上面的方法使其居中。先将其绝对定位至父元素半高位置，再提升自身半高距离即可。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;.parent&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; relative&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token selector&quot;&gt;.child&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; absolute&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 50%&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;translateY&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;-50%&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;iframe height=&apos;265&apos; scrolling=&apos;no&apos; title=&apos;Center Block with Unknown Height&apos; src=&apos;//codepen.io/chriscoyier/embed/lpema/?height=265&amp;theme-id=light&amp;default-tab=css,result&apos; frameborder=&apos;no&apos; allowtransparency=&apos;true&apos; allowfullscreen=&apos;true&apos; style=&apos;width: 100%;&apos;&gt;See the Pen &lt;a href=&apos;https://codepen.io/chriscoyier/pen/lpema/&apos;&gt;Center Block with Unknown Height&lt;/a&gt; by Chris Coyier  (&lt;a href=&apos;https://codepen.io/chriscoyier&apos;&gt;@chriscoyier&lt;/a&gt;) on &lt;a href=&apos;https://codepen.io&apos;&gt;CodePen&lt;/a&gt;.
+&lt;/iframe&gt;
+&lt;p&gt;~~&gt; Can you use flexbox?&lt;/p&gt;
+&lt;p&gt;你可以使用&lt;a href=&quot;http://css-tricks.com/snippets/css/a-guide-to-flexbox/&quot;&gt;flexbox&lt;/a&gt;吗？&lt;/p&gt;
+&lt;p&gt;如果可以，那就相当简单了。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;.parent&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; flex&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;flex-direction&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; column&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;justify-content&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; center&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;iframe height=&apos;265&apos; scrolling=&apos;no&apos; title=&apos;Center Block with Unknown Height with Flexbox&apos; src=&apos;//codepen.io/chriscoyier/embed/FqDyi/?height=265&amp;theme-id=light&amp;default-tab=css,result&apos; frameborder=&apos;no&apos; allowtransparency=&apos;true&apos; allowfullscreen=&apos;true&apos; style=&apos;width: 100%;&apos;&gt;See the Pen &lt;a href=&apos;https://codepen.io/chriscoyier/pen/FqDyi/&apos;&gt;Center Block with Unknown Height with Flexbox&lt;/a&gt; by Chris Coyier  (&lt;a href=&apos;https://codepen.io/chriscoyier&apos;&gt;@chriscoyier&lt;/a&gt;) on &lt;a href=&apos;https://codepen.io&apos;&gt;CodePen&lt;/a&gt;.
+&lt;/iframe&gt;
+&lt;h2&gt;➻ 水平且垂直居中&lt;/h2&gt;
+&lt;p&gt;你可以将前面的方法任意组合起来，实现完美的居中效果。但是我发现通常可以将其分为三类：&lt;/p&gt;
+&lt;h3&gt;—&gt; Is  the element of fixed width and height?&lt;/h3&gt;
+&lt;p&gt;元素有固定的宽度和高度吗？&lt;/p&gt;
+&lt;p&gt;先将元素绝对定位至50%／50%位置，然后加入负margin值，使该值等于高度和宽度的一半（注：元素如果有padding要记得计算进去，参考下例）。这样就可以使元素水平且垂直居中，并具有良好的浏览器兼容性。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;.parent&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; relative&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token selector&quot;&gt;.child&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 300px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 100px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 20px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  
+  &lt;span class=&quot;token property&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; absolute&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 50%&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 50%&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  
+  &lt;span class=&quot;token property&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; -70px 0 0 -170px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;iframe height=&apos;265&apos; scrolling=&apos;no&apos; title=&apos;Center Block with Fixed Height and Width&apos; src=&apos;//codepen.io/chriscoyier/embed/JGofm/?height=265&amp;theme-id=light&amp;default-tab=css,result&apos; frameborder=&apos;no&apos; allowtransparency=&apos;true&apos; allowfullscreen=&apos;true&apos; style=&apos;width: 100%;&apos;&gt;See the Pen &lt;a href=&apos;https://codepen.io/chriscoyier/pen/JGofm/&apos;&gt;Center Block with Fixed Height and Width&lt;/a&gt; by Chris Coyier  (&lt;a href=&apos;https://codepen.io/chriscoyier&apos;&gt;@chriscoyier&lt;/a&gt;) on &lt;a href=&apos;https://codepen.io&apos;&gt;CodePen&lt;/a&gt;.
+&lt;/iframe&gt;
+&lt;h3&gt;—&gt; Is the element of unknown width and height?&lt;/h3&gt;
+&lt;p&gt;元素的宽度与高度未知？&lt;/p&gt;
+&lt;p&gt;如果你不知道该元素的宽高，可以将它的&lt;code class=&quot;language-text&quot;&gt;transform&lt;/code&gt;属性设置为&lt;code class=&quot;language-text&quot;&gt;translate(-50%, -50%)&lt;/code&gt;。也可以达到相同的效果。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;.parent&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; relative&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token selector&quot;&gt;.child&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; absolute&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 50%&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 50%&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;translate&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;-50%, -50%&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;iframe height=&apos;265&apos; scrolling=&apos;no&apos; title=&apos;Center Block with Unknown Height and Width&apos; src=&apos;//codepen.io/chriscoyier/embed/lgFiq/?height=265&amp;theme-id=light&amp;default-tab=css,result&apos; frameborder=&apos;no&apos; allowtransparency=&apos;true&apos; allowfullscreen=&apos;true&apos; style=&apos;width: 100%;&apos;&gt;See the Pen &lt;a href=&apos;https://codepen.io/chriscoyier/pen/lgFiq/&apos;&gt;Center Block with Unknown Height and Width&lt;/a&gt; by Chris Coyier  (&lt;a href=&apos;https://codepen.io/chriscoyier&apos;&gt;@chriscoyier&lt;/a&gt;) on &lt;a href=&apos;https://codepen.io&apos;&gt;CodePen&lt;/a&gt;.
+&lt;/iframe&gt;
+&lt;h3&gt;—&gt; Can you use flexbox?&lt;/h3&gt;
+&lt;p&gt;你可以使用flexbox吗？&lt;/p&gt;
+&lt;p&gt;在水平和垂直两个方向上居中元素，你需要用到flex的两个属性：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;.parent&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; flex&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;justify-content&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; center&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;align-items&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; center&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;iframe height=&apos;265&apos; scrolling=&apos;no&apos; title=&apos;Center Block with Unknown Height and Width with Flexbox&apos; src=&apos;//codepen.io/chriscoyier/embed/msItD/?height=265&amp;theme-id=light&amp;default-tab=css,result&apos; frameborder=&apos;no&apos; allowtransparency=&apos;true&apos; allowfullscreen=&apos;true&apos; style=&apos;width: 100%;&apos;&gt;See the Pen &lt;a href=&apos;https://codepen.io/chriscoyier/pen/msItD/&apos;&gt;Center Block with Unknown Height and Width with Flexbox&lt;/a&gt; by Chris Coyier  (&lt;a href=&apos;https://codepen.io/chriscoyier&apos;&gt;@chriscoyier&lt;/a&gt;) on &lt;a href=&apos;https://codepen.io&apos;&gt;CodePen&lt;/a&gt;.
+&lt;/iframe&gt;
+&lt;h3&gt;—&gt; Can you use grid?&lt;/h3&gt;
+&lt;p&gt;这是一个小技巧，对单个元素来说非常有效：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;body, html&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 100%&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; grid&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token selector&quot;&gt;span&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;/* thing to center */&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; auto&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;iframe height=&apos;265&apos; scrolling=&apos;no&apos; title=&apos;Centering with Grid&apos; src=&apos;//codepen.io/chriscoyier/embed/NvwpyK/?height=265&amp;theme-id=light&amp;default-tab=css,result&apos; frameborder=&apos;no&apos; allowtransparency=&apos;true&apos; allowfullscreen=&apos;true&apos; style=&apos;width: 100%;&apos;&gt;See the Pen &lt;a href=&apos;https://codepen.io/chriscoyier/pen/NvwpyK/&apos;&gt;Centering with Grid&lt;/a&gt; by Chris Coyier  (&lt;a href=&apos;https://codepen.io/chriscoyier&apos;&gt;@chriscoyier&lt;/a&gt;) on &lt;a href=&apos;https://codepen.io&apos;&gt;CodePen&lt;/a&gt;.
+&lt;/iframe&gt;
+&lt;h2&gt;➻ 结论&lt;/h2&gt;
+&lt;p&gt;You can totally center things in CSS !!!&lt;/p&gt;
+&lt;p&gt;（完）&lt;/p&gt;</content:encoded></item><item><title><![CDATA[CSS 实现文字过长显示省略号]]></title><description><![CDATA[有时我们希望文本的内容不要太长，如果超出预期长度的话，则显示省略号标记。这种实现也比较常见。 简而言之，要实现这种效果，需要同时满足以下四个条件： 有宽度限制，即定义一个文本最长宽度 禁止折行。所有的文本只能在一行显示，下面的CSS…]]></description><link>https://gatsby-starter-blog-demo.netlify.com//truncate-string-with-ellipsis/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com//truncate-string-with-ellipsis/</guid><pubDate>Mon, 05 Mar 2018 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;有时我们希望文本的内容不要太长，如果超出预期长度的话，则显示省略号标记。这种实现也比较常见。&lt;/p&gt;
+&lt;p&gt;简而言之，要实现这种效果，需要同时满足以下四个条件：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;有宽度限制，即定义一个文本最长宽度&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;禁止折行。所有的文本只能在一行显示，下面的CSS代码可以实现：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token property&quot;&gt;white-space&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; nowrap&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;内容溢出则将其隐藏。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token property&quot;&gt;overflow&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; hidden&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol start=&quot;4&quot;&gt;
+&lt;li&gt;文本溢出时显示省略号标记。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token property&quot;&gt;text-overflow&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; ellipsis&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;下面是一个示例:&lt;/p&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;300&quot; src=&quot;//jsfiddle.net/redtree/zq97zatd/2/embedded/result,html,css/&quot; allowfullscreen=&quot;allowfullscreen&quot; allowpaymentrequest frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;a href=&quot;https://jsfiddle.net/redtree/zq97zatd/2/&quot;&gt;https://jsfiddle.net/redtree/zq97zatd/2/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;（完）&lt;/p&gt;</content:encoded></item><item><title><![CDATA[浏览器的前进、后退与刷新]]></title><description><![CDATA[问题 Web应用在Chrome里调试时正常，但是在移动端测试时点击后退不会刷新页面数据。 查看了移动端输出信息后，发现确实是接口数据都走了缓存。 我的后退是通过History API…]]></description><link>https://gatsby-starter-blog-demo.netlify.com//browser-forward-backward-and-refresh/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com//browser-forward-backward-and-refresh/</guid><pubDate>Tue, 27 Feb 2018 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;问题&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Web应用在Chrome里调试时正常，但是在移动端测试时点击后退不会刷新页面数据。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;查看了移动端输出信息后，发现确实是接口数据都走了缓存。&lt;/p&gt;
+&lt;p&gt;我的后退是通过History API实现的：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;history&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;back&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// history.go(-1); 与上面代码起同样作用&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;解决？&lt;/h2&gt;
+&lt;p&gt;经过查找发现，&lt;strong&gt;桌面端与移动端浏览器在对后退按钮的处理是有区别的&lt;/strong&gt;。桌面端在后退到上一页面时会刷新页面，包括表单数据等都会更新。然而在移动端则不会刷新，数据不会发生变化。这样的设计可能针对存在慢速连接的移动端，可以说，有其道理.. &lt;/p&gt;
+&lt;p&gt;一个并不完美的替代方案是使用&lt;code class=&quot;language-text&quot;&gt;document.referrer&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;它的定义是：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Returns the URI of the page taht linked to this page.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;就是返回链接到此页面的页面的URI。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;(注意：如果是用户直接导航到当前页面（没有通过一个链接，比如从书签）的情况，它的值是一个空字符串。)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;我们可以这样写来达到假返回的效果：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;location&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;href &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;referrer&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;之所以是假返回，因为这其实是一个前进操作。。如果使用&lt;code class=&quot;language-text&quot;&gt;hostory.back()&lt;/code&gt;方法，会返回到历史记录中的上一条记录，然而使用上面这种的话会在历史记录中再添加新的一条记录，这与我的初衷并不相符，所以说并不是完美的解决方案。&lt;/p&gt;
+&lt;p&gt;那么问题来了，应该如何完美解决呢？有待研究～&lt;/p&gt;
+&lt;p&gt;(完)&lt;/p&gt;</content:encoded></item><item><title><![CDATA[如何同步一个fork仓库]]></title><description><![CDATA[  参考Github官方帮助文档：    syncing-a-fork    configuring-a-remote-for-a-fork 一般情况下，当我们想在Github上为开源项目做贡献时，会首先将项目fork…]]></description><link>https://gatsby-starter-blog-demo.netlify.com//syncing-a-fork/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com//syncing-a-fork/</guid><pubDate>Tue, 20 Feb 2018 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;  参考Github官方帮助文档：&lt;/p&gt;
+&lt;p&gt;  &lt;a href=&quot;https://help.github.com/articles/syncing-a-fork/&quot;&gt;syncing-a-fork&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;  &lt;a href=&quot;https://help.github.com/articles/configuring-a-remote-for-a-fork/&quot;&gt;configuring-a-remote-for-a-fork&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;一般情况下，当我们想在Github上为开源项目做贡献时，会首先将项目fork到自己的库中。那么应该如何同步这个库，使其与上游库保持最新呢？&lt;/p&gt;
+&lt;p&gt;其实非常简单，只要经过以下几步：&lt;/p&gt;
+&lt;p&gt;（这里我们以 &lt;a href=&quot;https://github.com/webpack/webpack&quot;&gt;webpack&lt;/a&gt; 的开源项目为例）&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;# 1 首先fork一个库&lt;/h2&gt;
+&lt;p&gt;
+  &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/magpie/static/af1b1ce11ab5329a679e5161ba9c1aa7/77993/click_fork_button.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+  
+  &lt;span
+    class=&quot;gatsby-resp-image-wrapper&quot;
+    style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;
+  &gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-background-image&quot;
+      style=&quot;padding-bottom: 5.897945659377071%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAQklEQVQI113HSQqAMBAAQf//TTGazYyOEiYR2uXooaB7EK0EMXypD6P1C2v98/b/fczEXNDjJKQV2XbK6EjTjLqFGzvpTOJNPCtIAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    &gt;
+      &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
+        alt=&quot;click the fork button&quot;
+        title=&quot;&quot;
+        src=&quot;/magpie/static/af1b1ce11ab5329a679e5161ba9c1aa7/fb8a0/click_fork_button.png&quot;
+        srcset=&quot;/magpie/static/af1b1ce11ab5329a679e5161ba9c1aa7/1a291/click_fork_button.png 148w,
+/magpie/static/af1b1ce11ab5329a679e5161ba9c1aa7/2bc4a/click_fork_button.png 295w,
+/magpie/static/af1b1ce11ab5329a679e5161ba9c1aa7/fb8a0/click_fork_button.png 590w,
+/magpie/static/af1b1ce11ab5329a679e5161ba9c1aa7/526de/click_fork_button.png 885w,
+/magpie/static/af1b1ce11ab5329a679e5161ba9c1aa7/fa2eb/click_fork_button.png 1180w,
+/magpie/static/af1b1ce11ab5329a679e5161ba9c1aa7/77993/click_fork_button.png 1509w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+  
+  &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;然后用你喜欢的方式将它克隆到本地。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;# 2 配置fork仓库的远端仓库&lt;/h2&gt;
+&lt;p&gt;当我们已经对自己fork的仓库做了一些修改，然而可能源仓库已经又有了其他的更新，我们想把这些更新同步到自己的fork仓库。这时，我们应该先配置自己fork仓库的远端仓库地址。&lt;/p&gt;
+&lt;p&gt;以命令行为例（windows可以使用git bash）：&lt;/p&gt;
+&lt;p&gt;先查看目前的配置：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;$ git remote -v
+origin  https://github.com/my_name/webpack.git (fetch)
+origin  https://github.com/my_name/webpack.git (push)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;添加新的上游仓库：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;$ git remote add upstream https://github.com/webpack/webpack.git&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;确认添加成功：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;$ git remote -v
+origin  https://github.com/guitong/webpack.git (fetch)
+origin  https://github.com/guitong/webpack.git (push)
+upstream        https://github.com/webpack/webpack.git (fetch)
+upstream        https://github.com/webpack/webpack.git (push)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr&gt;
+&lt;h2&gt;# 3 可以进行同步了!&lt;/h2&gt;
+&lt;p&gt;现在让我们开始同步fork仓库。&lt;/p&gt;
+&lt;p&gt;首先从上游仓库拉取分支和各自的提交。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;$ git fetch upstream
+ * [new branch]        0.10                  -&amp;gt; upstream/0.10
+ * [new branch]        0.11                  -&amp;gt; upstream/0.11
+ * [new branch]        0.8                   -&amp;gt; upstream/0.8
+ * [new branch]        0.9                   -&amp;gt; upstream/0.9
+ * [new branch]        1.0                   -&amp;gt; upstream/1.0
+ * [new branch]        IgnorePluginHotfix    -&amp;gt; upstream/IgnorePluginHotfix
+ * [new branch]        bugfix/hash-watch-warnings-errors -&amp;gt; upstream/bugfix/hash-watch-warnings-errors
+ * [new branch]        ci/travis             -&amp;gt; upstream/ci/travis
+ * [new branch]        deprecation/webpack-3 -&amp;gt; upstream/deprecation/webpack-3
+ * [new branch]        feature/emoji_presets_to_options -&amp;gt; upstream/feature/emoji_presets_to_options
+ * [new branch]        feature/jsonp-to-push -&amp;gt; upstream/feature/jsonp-to-push
+ * [new branch]        feature/pure-module   -&amp;gt; upstream/feature/pure-module
+ * [new branch]        feature/webpack_options_apply_coverage_increase -&amp;gt; upstream/feature/webpack_options_apply_coverage_increase
+ * [new branch]        inline                -&amp;gt; upstream/inline
+ * [new branch]        master                -&amp;gt; upstream/master
+ * [new branch]        performance/parser    -&amp;gt; upstream/performance/parser
+ * [new branch]        refactor/cleanups     -&amp;gt; upstream/refactor/cleanups
+ * [new branch]        test/dependency-upgrade -&amp;gt; upstream/test/dependency-upgrade
+ * [new branch]        use-set-in-chunks     -&amp;gt; upstream/use-set-in-chunks
+ * [new branch]        webpack-1             -&amp;gt; upstream/webpack-1
+ * [new branch]        webpack-2             -&amp;gt; upstream/webpack-2&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;现在upstream上所有的分支都已经拉取到本地了。&lt;code class=&quot;language-text&quot;&gt;master&lt;/code&gt; 上的提交保存在了本地分支，&lt;code class=&quot;language-text&quot;&gt;upstream/master&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;如果我们想同步master分支，切换至本地&lt;code class=&quot;language-text&quot;&gt;master&lt;/code&gt;分支：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;$ git checkout master
+Switched to branch &amp;#39;master&amp;#39;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;将&lt;code class=&quot;language-text&quot;&gt;upstream/master&lt;/code&gt;分支数据合并至本地&lt;code class=&quot;language-text&quot;&gt;master&lt;/code&gt;分支：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;$ git merge upstream/master&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;至此，我们的同步操作就完成了。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Tip&lt;/strong&gt;: Syncing your fork only updates your local copy of the repository. To update your fork on GitHub, you must &lt;a href=&quot;https://help.github.com/articles/pushing-to-a-remote&quot;&gt;push your changes&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;(完)&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Hello World]]></title><description><![CDATA[This is my first post on my new fake blog! How exciting! I’m sure I’ll write a lot more interesting things in the future. Oh, and here’s a…]]></description><link>https://gatsby-starter-blog-demo.netlify.com//hello-world/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com//hello-world/</guid><pubDate>Fri, 01 May 2015 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;This is my first post on my new fake blog! How exciting!&lt;/p&gt;
 &lt;p&gt;I’m sure I’ll write a lot more interesting things in the future.&lt;/p&gt;
 &lt;p&gt;Oh, and here’s a great quote from this Wikipedia on
 &lt;a href=&quot;http://en.wikipedia.org/wiki/Salted_duck_egg&quot;&gt;salted duck eggs&lt;/a&gt;.&lt;/p&gt;
