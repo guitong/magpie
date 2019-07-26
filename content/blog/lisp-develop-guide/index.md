@@ -1,5 +1,5 @@
 ---
-title: '[Getting Started] - Lisp环境配置指南'
+title: 'Lisp环境配置指南'
 date: '2018-09-22'
 ---
 

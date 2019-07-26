@@ -2,8 +2,8 @@ module.exports = {
   pathPrefix: `/magpie`,
   siteMetadata: {
     title: `Magpie`,
-    author: `Dan Geng`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    author: `Guitong`,
+    description: `Personal blog by Guitong.`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
     social: {
       twitter: `gt_geng`,
